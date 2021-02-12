@@ -3,19 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2946A80025D25BC600049044 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2946A7FF25D25BC600049044 /* GoogleService-Info.plist */; };
+		2946A81725D25C7500049044 /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2946A81625D25C7500049044 /* LoginScreen.storyboard */; };
+		2946A81A25D25CA900049044 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946A81925D25CA900049044 /* LoginViewController.swift */; };
+		29AB211C25D5F70F00D8246D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB211B25D5F70F00D8246D /* User.swift */; };
+		29AB212025D5F8FE00D8246D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB211F25D5F8FE00D8246D /* SignUpViewController.swift */; };
 		29EC2CA725D259C2009DA806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC2CA625D259C2009DA806 /* AppDelegate.swift */; };
 		29EC2CA925D259C2009DA806 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC2CA825D259C2009DA806 /* SceneDelegate.swift */; };
 		29EC2CAB25D259C2009DA806 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC2CAA25D259C2009DA806 /* ViewController.swift */; };
 		29EC2CAE25D259C2009DA806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29EC2CAC25D259C2009DA806 /* Main.storyboard */; };
 		29EC2CB025D259C4009DA806 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29EC2CAF25D259C4009DA806 /* Assets.xcassets */; };
 		29EC2CB325D259C4009DA806 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29EC2CB125D259C4009DA806 /* LaunchScreen.storyboard */; };
+		80C0AA27648266C108BA4A82 /* Pods_groov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC253F733D7E4B8ECED22B5 /* Pods_groov.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2946A7FF25D25BC600049044 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2946A81625D25C7500049044 /* LoginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginScreen.storyboard; sourceTree = "<group>"; };
+		2946A81925D25CA900049044 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		29AB211B25D5F70F00D8246D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		29AB211F25D5F8FE00D8246D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		29EC2CA325D259C2009DA806 /* groov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = groov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29EC2CA625D259C2009DA806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29EC2CA825D259C2009DA806 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +35,9 @@
 		29EC2CAF25D259C4009DA806 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29EC2CB225D259C4009DA806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29EC2CB425D259C4009DA806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F68B191AF0B94760CD21900 /* Pods-groov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groov.release.xcconfig"; path = "Target Support Files/Pods-groov/Pods-groov.release.xcconfig"; sourceTree = "<group>"; };
+		985A2CE139C6DE7865ED12E7 /* Pods-groov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groov.debug.xcconfig"; path = "Target Support Files/Pods-groov/Pods-groov.debug.xcconfig"; sourceTree = "<group>"; };
+		CEC253F733D7E4B8ECED22B5 /* Pods_groov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +45,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80C0AA27648266C108BA4A82 /* Pods_groov.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2946A81425D25C3E00049044 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				29EC2CAC25D259C2009DA806 /* Main.storyboard */,
+				29EC2CB125D259C4009DA806 /* LaunchScreen.storyboard */,
+				2946A81625D25C7500049044 /* LoginScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		2946A81525D25C4800049044 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				29EC2CAA25D259C2009DA806 /* ViewController.swift */,
+				2946A81925D25CA900049044 /* LoginViewController.swift */,
+				29AB211F25D5F8FE00D8246D /* SignUpViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		29AB211A25D5F6F800D8246D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				29AB211B25D5F70F00D8246D /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		29EC2C9A25D259C2009DA806 = {
 			isa = PBXGroup;
 			children = (
 				29EC2CA525D259C2009DA806 /* groov */,
 				29EC2CA425D259C2009DA806 /* Products */,
+				CBABAC7932F5FF91AB33730E /* Pods */,
+				C2ACD394180672AED9CCE6CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +101,33 @@
 		29EC2CA525D259C2009DA806 /* groov */ = {
 			isa = PBXGroup;
 			children = (
+				29AB211A25D5F6F800D8246D /* Models */,
 				29EC2CA625D259C2009DA806 /* AppDelegate.swift */,
 				29EC2CA825D259C2009DA806 /* SceneDelegate.swift */,
-				29EC2CAA25D259C2009DA806 /* ViewController.swift */,
-				29EC2CAC25D259C2009DA806 /* Main.storyboard */,
+				2946A81525D25C4800049044 /* Controllers */,
 				29EC2CAF25D259C4009DA806 /* Assets.xcassets */,
-				29EC2CB125D259C4009DA806 /* LaunchScreen.storyboard */,
+				2946A81425D25C3E00049044 /* Storyboards */,
 				29EC2CB425D259C4009DA806 /* Info.plist */,
+				2946A7FF25D25BC600049044 /* GoogleService-Info.plist */,
 			);
 			path = groov;
+			sourceTree = "<group>";
+		};
+		C2ACD394180672AED9CCE6CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEC253F733D7E4B8ECED22B5 /* Pods_groov.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBABAC7932F5FF91AB33730E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				985A2CE139C6DE7865ED12E7 /* Pods-groov.debug.xcconfig */,
+				7F68B191AF0B94760CD21900 /* Pods-groov.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29EC2CB725D259C4009DA806 /* Build configuration list for PBXNativeTarget "groov" */;
 			buildPhases = (
+				CF24EC51DD6CD093245D982C /* [CP] Check Pods Manifest.lock */,
 				29EC2C9F25D259C2009DA806 /* Sources */,
 				29EC2CA025D259C2009DA806 /* Frameworks */,
 				29EC2CA125D259C2009DA806 /* Resources */,
+				9D31B82B0A7C867C757D0830 /* [CP] Embed Pods Frameworks */,
+				855A63E6EA64F2F1447F6150 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,20 +191,84 @@
 			buildActionMask = 2147483647;
 			files = (
 				29EC2CB325D259C4009DA806 /* LaunchScreen.storyboard in Resources */,
+				2946A80025D25BC600049044 /* GoogleService-Info.plist in Resources */,
 				29EC2CB025D259C4009DA806 /* Assets.xcassets in Resources */,
+				2946A81725D25C7500049044 /* LoginScreen.storyboard in Resources */,
 				29EC2CAE25D259C2009DA806 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		855A63E6EA64F2F1447F6150 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-groov/Pods-groov-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-groov/Pods-groov-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-groov/Pods-groov-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D31B82B0A7C867C757D0830 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-groov/Pods-groov-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-groov/Pods-groov-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-groov/Pods-groov-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF24EC51DD6CD093245D982C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-groov-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		29EC2C9F25D259C2009DA806 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29AB212025D5F8FE00D8246D /* SignUpViewController.swift in Sources */,
+				2946A81A25D25CA900049044 /* LoginViewController.swift in Sources */,
 				29EC2CAB25D259C2009DA806 /* ViewController.swift in Sources */,
 				29EC2CA725D259C2009DA806 /* AppDelegate.swift in Sources */,
+				29AB211C25D5F70F00D8246D /* User.swift in Sources */,
 				29EC2CA925D259C2009DA806 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +413,7 @@
 		};
 		29EC2CB825D259C4009DA806 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 985A2CE139C6DE7865ED12E7 /* Pods-groov.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +433,7 @@
 		};
 		29EC2CB925D259C4009DA806 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F68B191AF0B94760CD21900 /* Pods-groov.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

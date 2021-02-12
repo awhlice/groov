@@ -1,0 +1,6 @@
+framework module Pods_groov {
+  umbrella header "Pods-groov-umbrella.h"
+
+  export *
+  module * { export * }
+}
