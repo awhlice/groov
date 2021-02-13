@@ -5,9 +5,11 @@ target 'groov' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'Firebase/Core'
+  pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'FirebaseUI/Auth'
+  pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
 end

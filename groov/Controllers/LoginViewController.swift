@@ -7,55 +7,50 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseUI
-import FirebaseDatabase
 
 typealias FIRUser = FirebaseAuth.User
 
 class LoginViewController: UIViewController {
 
+    // MARK: - Subviews
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var signUpButton: UIButton!
     
+    // MARK: - VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func transitionToHome() {
+        let storyboard = UIStoryboard(name: "Home", bundle: .main)
 
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
-        print("yuhhhhhhhhhhhhhhhh")
-        
-        guard let authUI = FUIAuth.defaultAuthUI()
-            else { return }
-
-        authUI.delegate = self
-
-        let authViewController = authUI.authViewController()
-        present(authViewController, animated: true)
+        if let homeViewController = storyboard.instantiateInitialViewController() {
+            view.window?.rootViewController = homeViewController
+            view.window?.makeKeyAndVisible()
+        }
     }
     
-    @IBAction func signUpButtonTapped(_ sender: Any) {
-    }
-}
-
-extension LoginViewController: FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        if let error = error {
-            assertionFailure("Error signing in: \(error.localizedDescription)")
-            return
-        }
-
-        guard let user = authDataResult?.user
-            else { return }
-
-        let userRef = Database.database().reference().child("users").child(user.uid)
-
-        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            if let user = User(snapshot: snapshot) {
-                print("Welcome back, \(user.username).")
-            } else {
-                print("New user!")
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        let email = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            
+            if error != nil {
+                self.errorLabel.text = "Incorrect email or password."
+                self.errorLabel.alpha = 1
             }
-        })
+            else {
+                self.transitionToHome()
+            }
+        }
+    }
+    
+    // MARK: - IBActions
+    @IBAction func signUpButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "toSignUp", sender: self)
     }
 }
