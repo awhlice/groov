@@ -8,8 +8,6 @@
 import UIKit
 import FirebaseAuth
 
-typealias FIRUser = FirebaseAuth.User
-
 class LoginViewController: UIViewController {
 
     // MARK: - Subviews
@@ -33,6 +31,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         let email = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -49,7 +48,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    // MARK: - IBActions
     @IBAction func signUpButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "toSignUp", sender: self)
     }

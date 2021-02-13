@@ -9,10 +9,13 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var imagePicker : UIImagePickerController = UIImagePickerController()
     
     // MARK: - Subviews
-    // @IBOutlet weak var uploadPhotoButton: UIButton!
+    @IBOutlet weak var uploadImageButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -26,12 +29,29 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imagePicker.delegate = self
     }
     
-    func isPasswordValid(_ password : String) -> Bool {
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
-        return passwordTest.evaluate(with: password)
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage {
+            self.uploadImageButton.isEnabled = false
+            self.uploadImageButton.isHidden = true
+            self.imageView.image = pickedImage
+            self.imagePicker.dismiss(animated: true, completion: nil)
+        }
     }
+
+    func showAlert(Title : String!, Message : String!)  -> UIAlertController {
+        let alertController : UIAlertController = UIAlertController(title: Title, message: Message, preferredStyle: .alert)
+        let okAction : UIAlertAction = UIAlertAction(title: "Ok", style: .default)
+
+        alertController.addAction(okAction)
+        
+        alertController.popoverPresentationController?.sourceView = view
+        alertController.popoverPresentationController?.sourceRect = view.frame
+
+        return alertController
+      }
     
     func validateFields() -> String? {
         if firstNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -40,12 +60,6 @@ class SignUpViewController: UIViewController {
             passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             
             return "Please fill in all fields."
-        }
-        
-        let cleanedPassword = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        if isPasswordValid(cleanedPassword) == false {
-            return "Please make sure your password is at least 8 characters, contains a special character, and a number."
         }
         
         return nil
@@ -66,8 +80,38 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    // @IBAction func uploadPhotoButtonTapped(_ sender: Any) {
-    // }
+    @IBAction func uploadImageButtonTapped(_ sender: Any) {
+        let alertController : UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cameraAction : UIAlertAction = UIAlertAction(title: "Take Photo", style: .default, handler: {(cameraAction) in
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) == true {
+                self.imagePicker.sourceType = .camera
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                self.present(self.showAlert(Title: nil, Message: "Please allow access to your camera to take your profile photo."), animated: true, completion: nil)
+            }
+        })
+        
+        let libraryAction : UIAlertAction = UIAlertAction(title: "Choose from Library", style: .default, handler: {(libraryAction) in
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) == true {
+                self.imagePicker.sourceType = .photoLibrary
+                self.present(self.imagePicker, animated: true, completion: nil)
+            } else {
+                self.present(self.showAlert(Title: nil, Message: "Please allow access to your photo library to select your profile image."), animated: true, completion: nil)
+            }
+        })
+        
+        let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+        alertController.addAction(cameraAction)
+        alertController.addAction(libraryAction)
+        alertController.addAction(cancelAction)
+
+        alertController.popoverPresentationController?.sourceView = view
+        alertController.popoverPresentationController?.sourceRect = view.frame
+
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     @IBAction func connectSpotifyButtonTapped(_ sender: Any) {
     }
@@ -96,9 +140,31 @@ class SignUpViewController: UIViewController {
                 else {
                     let db = Firestore.firestore()
                     
-                    db.collection("users").addDocument(data: ["firstname": firstName, "lastname": lastName, "email": email, "password": password, "uid": result!.user.uid ]) { (error) in
-                        if error != nil {
-                            self.showError("Error saving user data.")
+                    if self.imageView.image != nil {
+                        let storageRef = Storage.storage().reference().child("user/\(String(describing: Auth.auth().currentUser?.uid))")
+                        
+                        let storedImage = storageRef.child("image/\(String(describing: Auth.auth().currentUser?.uid))")
+                    
+                        if let uploadData = self.imageView.image?.jpegData(compressionQuality: 1) {
+                            storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                                if error != nil {}
+                                storedImage.downloadURL(completion: { (url, error) in
+                                    if error != nil {}
+                                    if let urlText = url?.absoluteString {
+                                        db.collection("users").addDocument(data: ["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": urlText, "uid": result!.user.uid]) { (error) in
+                                            if error != nil {
+                                                self.showError("Error saving user data.")
+                                            }
+                                        }
+                                    }
+                                })
+                            })
+                        }
+                    } else {
+                        db.collection("users").addDocument(data: ["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": "", "uid": result!.user.uid]) { (error) in
+                            if error != nil {
+                                self.showError("Error saving user data.")
+                            }
                         }
                     }
                     
