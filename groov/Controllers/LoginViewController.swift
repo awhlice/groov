@@ -22,11 +22,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func transitionToHome() {
-        let storyboard = UIStoryboard(name: "Home", bundle: .main)
+    func transitionToSearch() {
+        let storyboard = UIStoryboard(name: "Search", bundle: .main)
 
-        if let homeViewController = storyboard.instantiateInitialViewController() {
-            view.window?.rootViewController = homeViewController
+        if let searchViewController = storyboard.instantiateInitialViewController() {
+            view.window?.rootViewController = searchViewController
             view.window?.makeKeyAndVisible()
         }
     }
@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
                 self.errorLabel.alpha = 1
             }
             else {
-                self.transitionToHome()
+                self.transitionToSearch()
             }
         }
     }

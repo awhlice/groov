@@ -70,11 +70,11 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         errorLabel.alpha = 1
     }
 
-    func transitionToHome() {
-        let storyboard = UIStoryboard(name: "Home", bundle: .main)
+    func transitionToSearch() {
+        let storyboard = UIStoryboard(name: "Search", bundle: .main)
 
-        if let homeViewController = storyboard.instantiateInitialViewController() {
-            view.window?.rootViewController = homeViewController
+        if let searchViewController = storyboard.instantiateInitialViewController() {
+            view.window?.rootViewController = searchViewController
             view.window?.makeKeyAndVisible()
         }
     }
@@ -168,7 +168,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                         }
                     }
                     
-                    self.transitionToHome()
+                    self.transitionToSearch()
                 }
             }
         }
