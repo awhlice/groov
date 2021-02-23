@@ -23,12 +23,10 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var connectSpotifyButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nevermindButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
     
     // MARK: - VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         imagePicker.delegate = self
     }
     
@@ -69,15 +67,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         errorLabel.text = message
         errorLabel.alpha = 1
     }
-
-    func transitionToSearch() {
-        let storyboard = UIStoryboard(name: "Search", bundle: .main)
-
-        if let searchViewController = storyboard.instantiateInitialViewController() {
-            view.window?.rootViewController = searchViewController
-            view.window?.makeKeyAndVisible()
-        }
-    }
     
     // MARK: - IBActions
     @IBAction func uploadImageButtonTapped(_ sender: Any) {
@@ -114,13 +103,16 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func connectSpotifyButtonTapped(_ sender: Any) {
+        let authViewController = AuthViewController()
+        authViewController.completionHandler = { [weak self] success in
+            DispatchQueue.main.async {
+                self?.signUpUser(success: success)
+            }
+        }
+        navigationController?.pushViewController(authViewController, animated: true)
     }
     
-    @IBAction func nevermindButtonTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "toLogin", sender: self)
-    }
-    
-    @IBAction func signUpButtonTapped(_ sender: Any) {
+    private func signUpUser(success: Bool) {
         let error = validateFields()
         
         if error != nil {
@@ -151,7 +143,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 storedImage.downloadURL(completion: { (url, error) in
                                     if error != nil {}
                                     if let urlText = url?.absoluteString {
-                                        db.collection("users").addDocument(data: ["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": urlText, "uid": result!.user.uid]) { (error) in
+                                        db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": urlText]) { (error) in
                                             if error != nil {
                                                 self.showError("Error saving user data.")
                                             }
@@ -161,16 +153,18 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                             })
                         }
                     } else {
-                        db.collection("users").addDocument(data: ["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": "", "uid": result!.user.uid]) { (error) in
+                        db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": ""]) { (error) in
                             if error != nil {
                                 self.showError("Error saving user data.")
                             }
                         }
                     }
-                    
-                    self.transitionToSearch()
                 }
             }
         }
+    }
+    
+    @IBAction func nevermindButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "toLogin", sender: self)
     }
 }
