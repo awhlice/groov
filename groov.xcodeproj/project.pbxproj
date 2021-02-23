@@ -22,7 +22,8 @@
 		2946A80025D25BC600049044 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2946A7FF25D25BC600049044 /* GoogleService-Info.plist */; };
 		2946A81725D25C7500049044 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2946A81625D25C7500049044 /* Login.storyboard */; };
 		2946A81A25D25CA900049044 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946A81925D25CA900049044 /* LoginViewController.swift */; };
-		29AB211C25D5F70F00D8246D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB211B25D5F70F00D8246D /* User.swift */; };
+		295BCC7925E4C96200730AE8 /* RankedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295BCC7825E4C96200730AE8 /* RankedTrack.swift */; };
+		29AB211C25D5F70F00D8246D /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB211B25D5F70F00D8246D /* CurrentTrack.swift */; };
 		29AB212025D5F8FE00D8246D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB211F25D5F8FE00D8246D /* SignUpViewController.swift */; };
 		29EC2CA725D259C2009DA806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC2CA625D259C2009DA806 /* AppDelegate.swift */; };
 		29EC2CA925D259C2009DA806 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EC2CA825D259C2009DA806 /* SceneDelegate.swift */; };
@@ -49,7 +50,8 @@
 		2946A7FF25D25BC600049044 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2946A81625D25C7500049044 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		2946A81925D25CA900049044 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		29AB211B25D5F70F00D8246D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		295BCC7825E4C96200730AE8 /* RankedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedTrack.swift; sourceTree = "<group>"; };
+		29AB211B25D5F70F00D8246D /* CurrentTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrack.swift; sourceTree = "<group>"; };
 		29AB211F25D5F8FE00D8246D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		29EC2CA325D259C2009DA806 /* groov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = groov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29EC2CA625D259C2009DA806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,8 +119,9 @@
 		29AB211A25D5F6F800D8246D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				29AB211B25D5F70F00D8246D /* User.swift */,
+				29AB211B25D5F70F00D8246D /* CurrentTrack.swift */,
 				2926613625E48E18000AE731 /* AuthResponse.swift */,
+				295BCC7825E4C96200730AE8 /* RankedTrack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -314,13 +317,14 @@
 			files = (
 				29AB212025D5F8FE00D8246D /* SignUpViewController.swift in Sources */,
 				29198AF025E4683A0027FBD7 /* AuthManager.swift in Sources */,
+				295BCC7925E4C96200730AE8 /* RankedTrack.swift in Sources */,
 				2946A81A25D25CA900049044 /* LoginViewController.swift in Sources */,
 				2900617425DF574E00A5CD0E /* MatchesViewController.swift in Sources */,
 				2926613725E48E18000AE731 /* AuthResponse.swift in Sources */,
 				2900617A25DF576900A5CD0E /* SettingsViewController.swift in Sources */,
 				29EC2CAB25D259C2009DA806 /* ViewController.swift in Sources */,
 				29EC2CA725D259C2009DA806 /* AppDelegate.swift in Sources */,
-				29AB211C25D5F70F00D8246D /* User.swift in Sources */,
+				29AB211C25D5F70F00D8246D /* CurrentTrack.swift in Sources */,
 				29198AF325E46EBD0027FBD7 /* AuthViewController.swift in Sources */,
 				2900617725DF575E00A5CD0E /* ProfileViewController.swift in Sources */,
 				29198AEC25E4682E0027FBD7 /* APICaller.swift in Sources */,
