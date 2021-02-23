@@ -60,8 +60,8 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         webView.isHidden = true
         AuthManager.shared.exchangeCodeForToken(code: code) { [weak self] success in
             DispatchQueue.main.async {
-                self?.transitionToSearch()
                 self?.completionHandler?(success)
+                self?.transitionToSearch()
             }
         }
     }

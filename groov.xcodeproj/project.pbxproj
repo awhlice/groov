@@ -126,6 +126,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		29D2AC1525E4D00D00089DFF /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				29EC2CA625D259C2009DA806 /* AppDelegate.swift */,
+				29EC2CA825D259C2009DA806 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		29EC2C9A25D259C2009DA806 = {
 			isa = PBXGroup;
 			children = (
@@ -148,9 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				29198AEA25E468230027FBD7 /* Managers */,
+				29D2AC1525E4D00D00089DFF /* Delegates */,
 				29AB211A25D5F6F800D8246D /* Models */,
-				29EC2CA625D259C2009DA806 /* AppDelegate.swift */,
-				29EC2CA825D259C2009DA806 /* SceneDelegate.swift */,
 				2946A81525D25C4800049044 /* Controllers */,
 				29EC2CAF25D259C4009DA806 /* Assets.xcassets */,
 				2946A81425D25C3E00049044 /* Storyboards */,

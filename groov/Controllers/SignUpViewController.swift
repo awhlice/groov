@@ -51,7 +51,17 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         return alertController
       }
     
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
     func validateFields() -> String? {
+        if self.imageView.image == nil {
+            return "Please upload a profile image."
+        }
+        
         if firstNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             lastNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -60,12 +70,35 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             return "Please fill in all fields."
         }
         
+        let email = self.emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !isValidEmail(email) {
+            return "Please use a valid email."
+        }
+        
         return nil
     }
     
-    func showError(_ message:String) {
-        errorLabel.text = message
-        errorLabel.alpha = 1
+    func signUpUser() {
+        let firstName = self.firstNameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let lastName = self.lastNameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let email = self.emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = self.passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
+            let db = Firestore.firestore()
+            let storageRef = Storage.storage().reference().child("user/\(String(describing: result!.user.uid))")
+            let storedImage = storageRef.child("image/\(String(describing: result!.user.uid))")
+            if let uploadData = self.imageView.image?.jpegData(compressionQuality: 1) {
+                storedImage.putData(uploadData, metadata: nil, completion: { (metadata, err) in
+                    if err != nil {}
+                    storedImage.downloadURL(completion: { (url, err) in
+                        if err != nil {}
+                        let urlText = url!.absoluteString
+                        db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": urlText])
+                    })
+                })
+            }
+        }
     }
     
     // MARK: - IBActions
@@ -103,67 +136,21 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func connectSpotifyButtonTapped(_ sender: Any) {
-        let authViewController = AuthViewController()
-        authViewController.completionHandler = { [weak self] success in
-            DispatchQueue.main.async {
-                self?.signUpUser(success: success)
-            }
-        }
-        navigationController?.pushViewController(authViewController, animated: true)
-    }
-    
-    private func signUpUser(success: Bool) {
         let error = validateFields()
-        
         if error != nil {
-            showError(error!)
-        }
-        else {
-            let firstName = firstNameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let lastName = lastNameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let email = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-                
-                if err != nil {
-                    self.showError("Error creating user.")
-                }
-                else {
-                    let db = Firestore.firestore()
-                    
-                    if self.imageView.image != nil {
-                        let storageRef = Storage.storage().reference().child("user/\(String(describing: Auth.auth().currentUser?.uid))")
-                        
-                        let storedImage = storageRef.child("image/\(String(describing: Auth.auth().currentUser?.uid))")
-                    
-                        if let uploadData = self.imageView.image?.jpegData(compressionQuality: 1) {
-                            storedImage.putData(uploadData, metadata: nil, completion: { (metadata, error) in
-                                if error != nil {}
-                                storedImage.downloadURL(completion: { (url, error) in
-                                    if error != nil {}
-                                    if let urlText = url?.absoluteString {
-                                        db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": urlText]) { (error) in
-                                            if error != nil {
-                                                self.showError("Error saving user data.")
-                                            }
-                                        }
-                                    }
-                                })
-                            })
-                        }
-                    } else {
-                        db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": ""]) { (error) in
-                            if error != nil {
-                                self.showError("Error saving user data.")
-                            }
-                        }
-                    }
+            errorLabel.text = error
+            errorLabel.alpha = 1
+        } else {
+            signUpUser()
+            let authViewController = AuthViewController()
+            authViewController.completionHandler = { [weak self] success in
+                DispatchQueue.main.async {
                 }
             }
+            navigationController?.pushViewController(authViewController, animated: true)
         }
     }
-    
+        
     @IBAction func nevermindButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "toLogin", sender: self)
     }

@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 
 class SearchViewController: UIViewController {
 
@@ -33,29 +34,29 @@ class SearchViewController: UIViewController {
             mapView.setRegion(viewRegion, animated: false)
         }
         
-        getMapInfo()
+        getUserInfo()
     }
     
-    private func updateMapUI(with model: CurrentTrack) {
-        print(model.item.name)
-        print(model.item.preview_url)
-        print(model.item.album.artists[0].name)
-        print(model.item.album.images[0].url)
+    private func updateUserCurrentTrack(with model: CurrentTrack) {
+        let db = Firestore.firestore()
+        
+        db.collection("users").document(Auth.auth().currentUser!.uid).collection("tracks").document("currentTrack").setData(["trackName": model.item.name, "trackArtist": model.item.album.artists[0].name, "trackImage": model.item.album.images[0].url, "trackPreview": model.item.preview_url], merge: true)
     }
     
-    private func updateMapUI2(with model: RankedTrack) {
-        print(model.items[0].name)
-        print(model.items[0].preview_url)
-        print(model.items[0].album.artists[0].name)
-        print(model.items[0].album.images[0].url)
+    private func updateUserTopTracks(with model: RankedTrack) {
+        let db = Firestore.firestore()
+        
+        for i in 1...5 {
+            db.collection("users").document(Auth.auth().currentUser!.uid).collection("tracks").document("rankedTrack"+String(i)).setData(["trackName": model.items[i-1].name, "trackArtist": model.items[i-1].album.artists[0].name, "trackImage": model.items[i-1].album.images[0].url, "trackPreview": model.items[i-1].preview_url], merge: true)
+        }
     }
     
-    private func getMapInfo() {
+    private func getUserInfo() {
         APICaller.shared.getCurrentTrack { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let model):
-                    self?.updateMapUI(with: model)
+                    self?.updateUserCurrentTrack(with: model)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -66,7 +67,7 @@ class SearchViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let model):
-                    self?.updateMapUI2(with: model)
+                    self?.updateUserTopTracks(with: model)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
