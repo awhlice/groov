@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,6 +17,295 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEW-E8-L79">
+                                <rect key="frame" x="-20" y="49" width="454" height="847"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Syu-T9-kU0">
+                                        <rect key="frame" x="20" y="221" width="414" height="1000"/>
+                                        <subviews>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFl-HX-niC" userLabel="currentlyPlaying">
+                                                <rect key="frame" x="26" y="23" width="166" height="23"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Currently Playing">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="20" name="Helvetica-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x5I-Aa-O6J" userLabel="currentTrackImageView">
+                                                <rect key="frame" x="26" y="63" width="80" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
+                                            </imageView>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwa-rm-xE1" userLabel="currentTitleLabel">
+                                                <rect key="frame" x="124" y="63" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Title">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62G-VT-HaS" userLabel="currentArtistLabel">
+                                                <rect key="frame" x="124" y="90" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Artist">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4w-8K-uu4" userLabel="topFiveTracks">
+                                                <rect key="frame" x="26" y="163" width="157" height="23"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Top Five Tracks">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="20" name="Helvetica-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pg6-xN-Z9a" userLabel="firstTrackImageView">
+                                                <rect key="frame" x="26" y="203" width="80" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
+                                            </imageView>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byo-rM-yp5" userLabel="firstTitleLabel">
+                                                <rect key="frame" x="124" y="203" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Title">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIx-Tq-kva" userLabel="firstArtistLabel">
+                                                <rect key="frame" x="124" y="230" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Artist">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="izv-44-etE" userLabel="secondTrackImageView">
+                                                <rect key="frame" x="26" y="315" width="80" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
+                                            </imageView>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2d-y5-5K6" userLabel="secondTitleLabel">
+                                                <rect key="frame" x="124" y="314" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Title">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hN2-Ba-Whr" userLabel="secondArtistLabel">
+                                                <rect key="frame" x="124" y="339" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Artist">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yNa-EQ-7DE" userLabel="thirdTrackImageView">
+                                                <rect key="frame" x="26" y="424" width="80" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
+                                            </imageView>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVl-lf-E9h" userLabel="thirdTitleLabel">
+                                                <rect key="frame" x="124" y="423" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Title">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fO-2c-KYl" userLabel="thirdArtistLabel">
+                                                <rect key="frame" x="124" y="448" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Artist">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfT-X3-xdE" userLabel="fourthTrackImageView">
+                                                <rect key="frame" x="26" y="533" width="80" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
+                                            </imageView>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqb-rd-xpz" userLabel="fourthTitleLabel">
+                                                <rect key="frame" x="124" y="532" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Title">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG8-YJ-Lb4" userLabel="fourthArtistLabel">
+                                                <rect key="frame" x="124" y="557" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Artist">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wub-gG-m9r" userLabel="fifthTrackImageView">
+                                                <rect key="frame" x="26" y="643" width="80" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
+                                            </imageView>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdV-iB-ABi" userLabel="fifthTitleLabel">
+                                                <rect key="frame" x="124" y="642" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Title">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Stx-fg-5pF" userLabel="fifthArtistLabel">
+                                                <rect key="frame" x="124" y="667" width="270" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Artist">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1000" id="VGp-91-59G"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2r5-Mz-6FD" userLabel="profileImageView">
+                                        <rect key="frame" x="167" y="80" width="120" height="120"/>
+                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="asx-kY-qkO"/>
+                                            <constraint firstAttribute="height" constant="124.5" id="f1e-Bf-UEc"/>
+                                        </constraints>
+                                        <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="small"/>
+                                    </imageView>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-wP-jKg" userLabel="nameLabel">
+                                        <rect key="frame" x="20" y="20" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hw5-aw-r8k"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Alice Wu">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="36" name="Helvetica-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="leading" secondItem="HEW-E8-L79" secondAttribute="leading" constant="20" id="2dY-0x-P5a"/>
+                                    <constraint firstItem="Syu-T9-kU0" firstAttribute="top" secondItem="2r5-Mz-6FD" secondAttribute="bottom" constant="18.5" id="78f-UG-HRA"/>
+                                    <constraint firstAttribute="bottom" secondItem="Syu-T9-kU0" secondAttribute="bottom" constant="-374" id="8rB-7w-yri"/>
+                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="top" secondItem="HEW-E8-L79" secondAttribute="top" constant="20" id="8yA-Vf-ef7"/>
+                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="centerX" secondItem="2r5-Mz-6FD" secondAttribute="centerX" id="9ai-mD-jGK"/>
+                                    <constraint firstItem="2r5-Mz-6FD" firstAttribute="top" secondItem="Y9b-wP-jKg" secondAttribute="bottom" constant="8" symbolic="YES" id="B5D-tW-PxC"/>
+                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="leading" secondItem="Syu-T9-kU0" secondAttribute="leading" id="EyQ-fV-E0k"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y9b-wP-jKg" secondAttribute="trailing" constant="20" id="JNn-Tx-nBe"/>
+                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="trailing" secondItem="Syu-T9-kU0" secondAttribute="trailing" id="Mix-7f-XkE"/>
+                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="centerX" secondItem="HEW-E8-L79" secondAttribute="centerX" id="mqp-rx-WXp"/>
+                                </constraints>
+                            </scrollView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Yk-ap-PC4">
                                 <rect key="frame" x="-9" y="773" width="432" height="123"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,177 +346,38 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L86-9p-WVP">
-                                <rect key="frame" x="0.0" y="33" width="414" height="740"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2r5-Mz-6FD" userLabel="profileImageView">
-                                        <rect key="frame" x="128" y="74.5" width="160" height="160"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </imageView>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-wP-jKg" userLabel="nameLabel">
-                                        <rect key="frame" x="127" y="43" width="160" height="23"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Alice Wu">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="20" name="Helvetica-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Syu-T9-kU0">
-                                        <rect key="frame" x="-4" y="252" width="423" height="488"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4w-8K-uu4" userLabel="topFiveTracks">
-                                                <rect key="frame" x="26" y="156" width="157" height="55"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Top Five Tracks">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" size="20" name="Helvetica-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
-                                            </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFl-HX-niC" userLabel="currentlyPlaying">
-                                                <rect key="frame" x="26" y="23" width="166" height="23"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Currently Playing">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" size="20" name="Helvetica-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
-                                            </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwa-rm-xE1" userLabel="currentTitleLabel">
-                                                <rect key="frame" x="125" y="59" width="29" height="17"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Title">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
-                                            </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62G-VT-HaS" userLabel="currentArtistLabel">
-                                                <rect key="frame" x="125" y="92" width="37" height="17"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Artist">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="x5I-Aa-O6J" userLabel="currentTrackImageView">
-                                                <rect key="frame" x="26" y="60" width="80" height="80"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQD-6c-ObT" userLabel="firstTitleLabel">
-                                                <rect key="frame" x="124" y="208" width="29" height="17"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Title">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
-                                            </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCo-xO-D8c" userLabel="firstArtistLabel">
-                                                <rect key="frame" x="124" y="241" width="37" height="17"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Artist">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Pg6-xN-Z9a" userLabel="firstTrackImageView">
-                                                <rect key="frame" x="26" y="209" width="80" height="80"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVw-su-fkG" userLabel="secondTitleLabel">
-                                                <rect key="frame" x="124" y="314" width="29" height="17"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Title">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
-                                            </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YgL-N4-Gr3" userLabel="secondArtistLabel">
-                                                <rect key="frame" x="124" y="347" width="37" height="17"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Artist">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.33751165869999999" green="0.31774571540000002" blue="0.67846512790000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="izv-44-etE" userLabel="secondTrackImageView">
-                                                <rect key="frame" x="26" y="315" width="80" height="80"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                </subviews>
-                                <viewLayoutGuide key="contentLayoutGuide" id="Qso-r3-M1M"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="otd-jS-tIr"/>
-                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="axT-JP-Hm2"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="HEW-E8-L79" firstAttribute="leading" secondItem="6iC-HR-spF" secondAttribute="leadingMargin" constant="-40" id="Eue-Kx-Kgj"/>
+                            <constraint firstItem="HEW-E8-L79" firstAttribute="centerX" secondItem="6iC-HR-spF" secondAttribute="centerX" id="M5O-rf-8nE"/>
+                            <constraint firstItem="HEW-E8-L79" firstAttribute="top" secondItem="axT-JP-Hm2" secondAttribute="top" constant="5" id="MjF-Dl-hSM"/>
+                            <constraint firstItem="axT-JP-Hm2" firstAttribute="bottom" secondItem="HEW-E8-L79" secondAttribute="bottom" constant="-34" id="ncV-Zv-DXX"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentArtistLabel" destination="62G-VT-HaS" id="TsA-ox-G6p"/>
+                        <outlet property="currentTitleLabel" destination="cwa-rm-xE1" id="bke-TP-Zes"/>
+                        <outlet property="currentTrackImageView" destination="x5I-Aa-O6J" id="ZAn-tl-ZuO"/>
+                        <outlet property="fifthArtistLabel" destination="Stx-fg-5pF" id="mRJ-Ga-Bs4"/>
+                        <outlet property="fifthTitleLabel" destination="GdV-iB-ABi" id="p8o-C1-58x"/>
+                        <outlet property="fifthTrackImageView" destination="wub-gG-m9r" id="Tib-et-hkR"/>
+                        <outlet property="firstArtistLabel" destination="PIx-Tq-kva" id="pc5-tF-cOZ"/>
+                        <outlet property="firstTitleLabel" destination="byo-rM-yp5" id="h6m-UV-A7u"/>
+                        <outlet property="firstTrackImageView" destination="Pg6-xN-Z9a" id="JPX-Ge-zhN"/>
+                        <outlet property="fourthArtistLabel" destination="bG8-YJ-Lb4" id="270-a1-o9g"/>
+                        <outlet property="fourthTitleLabel" destination="lqb-rd-xpz" id="MlL-gO-rBS"/>
+                        <outlet property="fourthTrackImageView" destination="bfT-X3-xdE" id="Hvx-hF-0GQ"/>
                         <outlet property="nameLabel" destination="Y9b-wP-jKg" id="NVU-DC-kRN"/>
                         <outlet property="profileImageView" destination="2r5-Mz-6FD" id="WYW-nF-ivX"/>
+                        <outlet property="scrollView" destination="HEW-E8-L79" id="Xvz-W4-tZa"/>
+                        <outlet property="secondArtistLabel" destination="hN2-Ba-Whr" id="mSn-7S-8dU"/>
+                        <outlet property="secondTitleLabel" destination="T2d-y5-5K6" id="VVJ-B7-QpJ"/>
+                        <outlet property="secondTrackImageView" destination="izv-44-etE" id="nAg-pM-9UR"/>
+                        <outlet property="thirdArtistLabel" destination="2fO-2c-KYl" id="KJa-Ik-P31"/>
+                        <outlet property="thirdTitleLabel" destination="xVl-lf-E9h" id="tKg-88-Ky5"/>
+                        <outlet property="thirdTrackImageView" destination="yNa-EQ-7DE" id="LQL-8O-oAG"/>
                         <outlet property="toMatchesButton" destination="Owj-KR-qut" id="JNS-1Y-lkM"/>
                         <outlet property="toSearchButton" destination="Tie-Zi-IWI" id="yVF-fT-9GH"/>
                         <outlet property="toSettingsButton" destination="8hP-Af-IYU" id="e5x-q4-dr8"/>
@@ -243,7 +394,7 @@
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="square" catalog="system" width="128" height="114"/>
+        <image name="questionmark" catalog="system" width="96" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

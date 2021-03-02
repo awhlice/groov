@@ -20,7 +20,13 @@ class SearchViewController: UIViewController {
     fileprivate let locationManager: CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
+        updateUserLocation()
+        getUserInfo()
         super.viewDidLoad()
+    }
+    
+    private func updateUserLocation() {
+        let db = Firestore.firestore()
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -32,9 +38,9 @@ class SearchViewController: UIViewController {
         if let userLocation = locationManager.location?.coordinate {
             let viewRegion = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(viewRegion, animated: false)
+            
+            db.collection("users").document(Auth.auth().currentUser!.uid).setData(["latitude": userLocation.latitude, "longitude": userLocation.longitude], merge: true)
         }
-        
-        getUserInfo()
     }
     
     private func updateUserCurrentTrack(with model: CurrentTrack) {

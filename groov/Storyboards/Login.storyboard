@@ -154,10 +154,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoU-KL-0Wc">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoU-KL-0Wc" userLabel="Create Account">
                                 <rect key="frame" x="-23" y="78" width="460" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Create New Account">
+                                    <fragment content="Create Account">
                                         <attributes>
                                             <color key="NSColor" systemColor="systemBackgroundColor"/>
                                             <font key="NSFont" size="36" name="Helvetica-Bold"/>
@@ -167,12 +168,10 @@
                                 </attributedString>
                                 <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
                             </label>
-                            <button contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAF-Dt-F1f" userLabel="connectSpotifyButton">
+                            <button contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAF-Dt-F1f" userLabel="connectSpotifyButton">
                                 <rect key="frame" x="58" y="659" width="298" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.98178941009999998" green="0.12735727429999999" blue="0.47451794149999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="mof-b5-UsM"/>
-                                </constraints>
                                 <color key="tintColor" red="0.39638316629999998" green="0.83263403179999995" blue="0.43129605050000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -194,43 +193,33 @@
                                     <action selector="connectSpotifyButtonTapped:" destination="9Mn-zr-J0z" eventType="touchUpInside" id="pCd-zn-Xzs"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Htr-fa-YRV" userLabel="firstNameField">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Htr-fa-YRV" userLabel="firstNameField">
                                 <rect key="frame" x="58" y="332" width="298" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="dRB-sf-EKf"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-cW-WV9" userLabel="lastNameField">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBG-cW-WV9" userLabel="lastNameField">
                                 <rect key="frame" x="58" y="410" width="298" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="VSQ-wD-4EJ"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQl-7q-fMn" userLabel="emailField">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQl-7q-fMn" userLabel="emailField">
                                 <rect key="frame" x="58" y="489" width="298" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="0dY-Wx-6Xv"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2N-Ep-XbR" userLabel="passwordField">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2N-Ep-XbR" userLabel="passwordField">
                                 <rect key="frame" x="58" y="567" width="298" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="4ip-5e-iwA"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1w5-my-kSP" userLabel="errorLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1w5-my-kSP" userLabel="errorLabel">
                                 <rect key="frame" x="58" y="618" width="298" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="bjD-Ti-6Ui"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="error">
                                         <attributes>
@@ -242,14 +231,12 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7K-ZT-HjD" userLabel="nevermindButton">
+                            <button contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7K-ZT-HjD" userLabel="nevermindButton">
                                 <rect key="frame" x="50" y="738" width="314" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="18c-Dk-nyQ"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="I changed my mind.">
+                                        <fragment content="I change my mind.">
                                             <attributes>
                                                 <font key="NSFont" size="14" name="Helvetica-Bold"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -266,11 +253,13 @@
                                     <action selector="nevermindButtonTapped:" destination="9Mn-zr-J0z" eventType="touchUpInside" id="P6G-ef-WHN"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wcD-A2-inm" userLabel="imageView" customClass="RoundedImageView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcD-A2-inm" userLabel="imageView" customClass="RoundedImageView">
                                 <rect key="frame" x="127" y="139" width="160" height="161.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxc-hs-THt" userLabel="uploadImageButton">
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxc-hs-THt" userLabel="uploadImageButton">
                                 <rect key="frame" x="132" y="139" width="150" height="161"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="person.crop.circle.badge.plus" catalog="system"/>
                                 <connections>
@@ -280,40 +269,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5TJ-Rg-Cfv"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                        <constraints>
-                            <constraint firstItem="FAF-Dt-F1f" firstAttribute="centerX" secondItem="F7K-ZT-HjD" secondAttribute="centerX" id="3Rv-5n-1u1"/>
-                            <constraint firstItem="1w5-my-kSP" firstAttribute="top" secondItem="q2N-Ep-XbR" secondAttribute="bottom" constant="17" id="3e8-Pv-lGo"/>
-                            <constraint firstItem="5TJ-Rg-Cfv" firstAttribute="bottom" secondItem="F7K-ZT-HjD" secondAttribute="bottom" constant="42" id="3jo-oi-RYe"/>
-                            <constraint firstItem="wcD-A2-inm" firstAttribute="top" secondItem="Uxc-hs-THt" secondAttribute="top" id="626-aq-2NE"/>
-                            <constraint firstItem="yoU-KL-0Wc" firstAttribute="centerX" secondItem="wcD-A2-inm" secondAttribute="centerX" id="6FW-RB-Tl8"/>
-                            <constraint firstItem="q2N-Ep-XbR" firstAttribute="trailing" secondItem="1w5-my-kSP" secondAttribute="trailing" id="7rV-sk-njB"/>
-                            <constraint firstItem="Uxc-hs-THt" firstAttribute="leading" secondItem="5TJ-Rg-Cfv" secondAttribute="leading" constant="133.5" id="9Mx-RE-jeZ"/>
-                            <constraint firstItem="q2N-Ep-XbR" firstAttribute="top" secondItem="fQl-7q-fMn" secondAttribute="bottom" constant="44" id="9eR-3t-xPY"/>
-                            <constraint firstItem="yoU-KL-0Wc" firstAttribute="leading" secondItem="fgu-0b-3Pr" secondAttribute="leadingMargin" constant="-43" id="9fb-GM-SYp"/>
-                            <constraint firstItem="fQl-7q-fMn" firstAttribute="top" secondItem="PBG-cW-WV9" secondAttribute="bottom" constant="45" id="Ba2-ja-ZTp"/>
-                            <constraint firstItem="yoU-KL-0Wc" firstAttribute="centerX" secondItem="fgu-0b-3Pr" secondAttribute="centerX" id="Bs1-Ue-j9U"/>
-                            <constraint firstItem="Htr-fa-YRV" firstAttribute="leading" secondItem="PBG-cW-WV9" secondAttribute="leading" id="Cie-vg-Ust"/>
-                            <constraint firstItem="PBG-cW-WV9" firstAttribute="trailing" secondItem="fQl-7q-fMn" secondAttribute="trailing" id="Evq-kA-hC5"/>
-                            <constraint firstItem="Htr-fa-YRV" firstAttribute="leading" secondItem="5TJ-Rg-Cfv" secondAttribute="leading" constant="58" id="G1d-zW-kiS"/>
-                            <constraint firstItem="wcD-A2-inm" firstAttribute="top" secondItem="yoU-KL-0Wc" secondAttribute="bottom" constant="19" id="H90-uU-mrn"/>
-                            <constraint firstItem="wcD-A2-inm" firstAttribute="centerX" secondItem="Uxc-hs-THt" secondAttribute="centerX" id="VMn-qK-GrJ"/>
-                            <constraint firstItem="PBG-cW-WV9" firstAttribute="leading" secondItem="fQl-7q-fMn" secondAttribute="leading" id="VeY-kw-jvF"/>
-                            <constraint firstItem="PBG-cW-WV9" firstAttribute="top" secondItem="Htr-fa-YRV" secondAttribute="bottom" constant="44" id="WRk-mK-uxn"/>
-                            <constraint firstItem="F7K-ZT-HjD" firstAttribute="top" secondItem="FAF-Dt-F1f" secondAttribute="bottom" constant="18" id="WvV-bZ-cD2"/>
-                            <constraint firstItem="1w5-my-kSP" firstAttribute="trailing" secondItem="FAF-Dt-F1f" secondAttribute="trailing" id="WzF-Mf-Xwl"/>
-                            <constraint firstItem="1w5-my-kSP" firstAttribute="leading" secondItem="FAF-Dt-F1f" secondAttribute="leading" id="X1e-bp-5b7"/>
-                            <constraint firstItem="Uxc-hs-THt" firstAttribute="centerX" secondItem="Htr-fa-YRV" secondAttribute="centerX" id="cty-tF-1e3"/>
-                            <constraint firstItem="F7K-ZT-HjD" firstAttribute="leading" secondItem="5TJ-Rg-Cfv" secondAttribute="leading" constant="50" id="dtZ-OP-DAj"/>
-                            <constraint firstItem="q2N-Ep-XbR" firstAttribute="leading" secondItem="1w5-my-kSP" secondAttribute="leading" id="grc-YH-0hM"/>
-                            <constraint firstItem="yoU-KL-0Wc" firstAttribute="top" secondItem="5TJ-Rg-Cfv" secondAttribute="top" constant="78" id="hrm-oI-ALy"/>
-                            <constraint firstItem="wcD-A2-inm" firstAttribute="bottom" secondItem="Uxc-hs-THt" secondAttribute="bottom" id="kkb-KW-Dh2"/>
-                            <constraint firstItem="FAF-Dt-F1f" firstAttribute="top" secondItem="1w5-my-kSP" secondAttribute="bottom" constant="17" id="lke-ou-peD"/>
-                            <constraint firstItem="Htr-fa-YRV" firstAttribute="trailing" secondItem="PBG-cW-WV9" secondAttribute="trailing" id="pWT-o8-dFI"/>
-                            <constraint firstItem="Htr-fa-YRV" firstAttribute="top" secondItem="wcD-A2-inm" secondAttribute="bottom" constant="31.5" id="rRH-SW-iNf"/>
-                            <constraint firstItem="wcD-A2-inm" firstAttribute="leading" secondItem="5TJ-Rg-Cfv" secondAttribute="leading" constant="127" id="ttD-nC-1RX"/>
-                            <constraint firstItem="fQl-7q-fMn" firstAttribute="trailing" secondItem="q2N-Ep-XbR" secondAttribute="trailing" id="twI-1W-T5W"/>
-                            <constraint firstItem="fQl-7q-fMn" firstAttribute="leading" secondItem="q2N-Ep-XbR" secondAttribute="leading" id="wZH-BL-ioa"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jk1-MZ-SYE"/>
                     <connections>
@@ -352,7 +307,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YeW-eV-1sX"/>
         <segue reference="beM-LW-g7j"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
