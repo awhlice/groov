@@ -17,11 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEW-E8-L79">
-                                <rect key="frame" x="-20" y="49" width="454" height="847"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEW-E8-L79">
+                                <rect key="frame" x="-20" y="49" width="454" height="737"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Syu-T9-kU0">
-                                        <rect key="frame" x="20" y="221" width="414" height="1000"/>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Syu-T9-kU0">
+                                        <rect key="frame" x="20" y="220" width="414" height="1000"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFl-HX-niC" userLabel="currentlyPlaying">
                                                 <rect key="frame" x="26" y="23" width="166" height="23"/>
@@ -40,10 +42,19 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x5I-Aa-O6J" userLabel="currentTrackImageView">
                                                 <rect key="frame" x="26" y="63" width="80" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <button opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfA-Kg-fkf" userLabel="currentTrackButton">
+                                                <rect key="frame" x="51" y="88.5" width="30" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
-                                            </imageView>
+                                                <state key="normal" backgroundImage="play.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="currentTrackButtonTapped:" destination="XgM-8c-2dv" eventType="touchUpInside" id="Eb9-2m-do9"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwa-rm-xE1" userLabel="currentTitleLabel">
                                                 <rect key="frame" x="124" y="63" width="270" height="17"/>
                                                 <autoresizingMask key="autoresizingMask"/>
@@ -89,10 +100,19 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pg6-xN-Z9a" userLabel="firstTrackImageView">
                                                 <rect key="frame" x="26" y="203" width="80" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <button opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8N-Lo-0xh" userLabel="firstTrackButton">
+                                                <rect key="frame" x="51" y="228" width="30" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
-                                            </imageView>
+                                                <state key="normal" backgroundImage="play.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="firstTrackButtonTapped:" destination="XgM-8c-2dv" eventType="touchUpInside" id="P9y-TK-3Ck"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byo-rM-yp5" userLabel="firstTitleLabel">
                                                 <rect key="frame" x="124" y="203" width="270" height="17"/>
                                                 <autoresizingMask key="autoresizingMask"/>
@@ -124,10 +144,19 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="izv-44-etE" userLabel="secondTrackImageView">
                                                 <rect key="frame" x="26" y="315" width="80" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <button opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tg-VD-6gz" userLabel="secondTrackButton">
+                                                <rect key="frame" x="51" y="340.5" width="30" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
-                                            </imageView>
+                                                <state key="normal" backgroundImage="play.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="secondTrackButtonTapped:" destination="XgM-8c-2dv" eventType="touchUpInside" id="k0j-ln-3Me"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2d-y5-5K6" userLabel="secondTitleLabel">
                                                 <rect key="frame" x="124" y="314" width="270" height="17"/>
                                                 <autoresizingMask key="autoresizingMask"/>
@@ -159,9 +188,8 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yNa-EQ-7DE" userLabel="thirdTrackImageView">
                                                 <rect key="frame" x="26" y="424" width="80" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
                                             </imageView>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVl-lf-E9h" userLabel="thirdTitleLabel">
                                                 <rect key="frame" x="124" y="423" width="270" height="17"/>
@@ -194,10 +222,19 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfT-X3-xdE" userLabel="fourthTrackImageView">
                                                 <rect key="frame" x="26" y="533" width="80" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <button opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6el-za-LXf" userLabel="fourthTrackButton">
+                                                <rect key="frame" x="51" y="558.5" width="30" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
-                                            </imageView>
+                                                <state key="normal" backgroundImage="play.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="fourthTrackButtonTapped:" destination="XgM-8c-2dv" eventType="touchUpInside" id="OeU-R7-sKb"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqb-rd-xpz" userLabel="fourthTitleLabel">
                                                 <rect key="frame" x="124" y="532" width="270" height="17"/>
                                                 <autoresizingMask key="autoresizingMask"/>
@@ -229,10 +266,19 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wub-gG-m9r" userLabel="fifthTrackImageView">
                                                 <rect key="frame" x="26" y="643" width="80" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <button opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDP-Og-Pqr" userLabel="fifthTrackButton">
+                                                <rect key="frame" x="51" y="668.5" width="30" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <imageReference key="image" image="questionmark" catalog="system" symbolScale="small"/>
-                                            </imageView>
+                                                <state key="normal" backgroundImage="play.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="fifthTrackButtonTapped:" destination="XgM-8c-2dv" eventType="touchUpInside" id="UYa-PI-1Ey"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdV-iB-ABi" userLabel="fifthTitleLabel">
                                                 <rect key="frame" x="124" y="642" width="270" height="17"/>
                                                 <autoresizingMask key="autoresizingMask"/>
@@ -261,26 +307,31 @@
                                                 </attributedString>
                                                 <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
                                             </label>
+                                            <button opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UP5-M3-rZi" userLabel="thirdTrackButton">
+                                                <rect key="frame" x="51" y="449.5" width="30" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" backgroundImage="play.circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="thirdTrackButtonTapped:" destination="XgM-8c-2dv" eventType="touchUpInside" id="ycx-mK-Rc4"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1000" id="VGp-91-59G"/>
-                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2r5-Mz-6FD" userLabel="profileImageView">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2r5-Mz-6FD" userLabel="profileImageView">
                                         <rect key="frame" x="167" y="80" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="asx-kY-qkO"/>
-                                            <constraint firstAttribute="height" constant="124.5" id="f1e-Bf-UEc"/>
-                                        </constraints>
                                         <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="small"/>
                                     </imageView>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-wP-jKg" userLabel="nameLabel">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-wP-jKg" userLabel="nameLabel">
                                         <rect key="frame" x="20" y="20" width="414" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="hw5-aw-r8k"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Alice Wu">
                                                 <attributes>
@@ -293,18 +344,6 @@
                                         <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="leading" secondItem="HEW-E8-L79" secondAttribute="leading" constant="20" id="2dY-0x-P5a"/>
-                                    <constraint firstItem="Syu-T9-kU0" firstAttribute="top" secondItem="2r5-Mz-6FD" secondAttribute="bottom" constant="18.5" id="78f-UG-HRA"/>
-                                    <constraint firstAttribute="bottom" secondItem="Syu-T9-kU0" secondAttribute="bottom" constant="-374" id="8rB-7w-yri"/>
-                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="top" secondItem="HEW-E8-L79" secondAttribute="top" constant="20" id="8yA-Vf-ef7"/>
-                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="centerX" secondItem="2r5-Mz-6FD" secondAttribute="centerX" id="9ai-mD-jGK"/>
-                                    <constraint firstItem="2r5-Mz-6FD" firstAttribute="top" secondItem="Y9b-wP-jKg" secondAttribute="bottom" constant="8" symbolic="YES" id="B5D-tW-PxC"/>
-                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="leading" secondItem="Syu-T9-kU0" secondAttribute="leading" id="EyQ-fV-E0k"/>
-                                    <constraint firstAttribute="trailing" secondItem="Y9b-wP-jKg" secondAttribute="trailing" constant="20" id="JNn-Tx-nBe"/>
-                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="trailing" secondItem="Syu-T9-kU0" secondAttribute="trailing" id="Mix-7f-XkE"/>
-                                    <constraint firstItem="Y9b-wP-jKg" firstAttribute="centerX" secondItem="HEW-E8-L79" secondAttribute="centerX" id="mqp-rx-WXp"/>
-                                </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Yk-ap-PC4">
                                 <rect key="frame" x="-9" y="773" width="432" height="123"/>
@@ -349,34 +388,34 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="axT-JP-Hm2"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                        <constraints>
-                            <constraint firstItem="HEW-E8-L79" firstAttribute="leading" secondItem="6iC-HR-spF" secondAttribute="leadingMargin" constant="-40" id="Eue-Kx-Kgj"/>
-                            <constraint firstItem="HEW-E8-L79" firstAttribute="centerX" secondItem="6iC-HR-spF" secondAttribute="centerX" id="M5O-rf-8nE"/>
-                            <constraint firstItem="HEW-E8-L79" firstAttribute="top" secondItem="axT-JP-Hm2" secondAttribute="top" constant="5" id="MjF-Dl-hSM"/>
-                            <constraint firstItem="axT-JP-Hm2" firstAttribute="bottom" secondItem="HEW-E8-L79" secondAttribute="bottom" constant="-34" id="ncV-Zv-DXX"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="currentArtistLabel" destination="62G-VT-HaS" id="TsA-ox-G6p"/>
                         <outlet property="currentTitleLabel" destination="cwa-rm-xE1" id="bke-TP-Zes"/>
+                        <outlet property="currentTrackButton" destination="yfA-Kg-fkf" id="0Fv-Rv-mAJ"/>
                         <outlet property="currentTrackImageView" destination="x5I-Aa-O6J" id="ZAn-tl-ZuO"/>
                         <outlet property="fifthArtistLabel" destination="Stx-fg-5pF" id="mRJ-Ga-Bs4"/>
                         <outlet property="fifthTitleLabel" destination="GdV-iB-ABi" id="p8o-C1-58x"/>
+                        <outlet property="fifthTrackButton" destination="zDP-Og-Pqr" id="YBc-fd-59d"/>
                         <outlet property="fifthTrackImageView" destination="wub-gG-m9r" id="Tib-et-hkR"/>
                         <outlet property="firstArtistLabel" destination="PIx-Tq-kva" id="pc5-tF-cOZ"/>
                         <outlet property="firstTitleLabel" destination="byo-rM-yp5" id="h6m-UV-A7u"/>
+                        <outlet property="firstTrackButton" destination="V8N-Lo-0xh" id="owk-TI-RQk"/>
                         <outlet property="firstTrackImageView" destination="Pg6-xN-Z9a" id="JPX-Ge-zhN"/>
                         <outlet property="fourthArtistLabel" destination="bG8-YJ-Lb4" id="270-a1-o9g"/>
                         <outlet property="fourthTitleLabel" destination="lqb-rd-xpz" id="MlL-gO-rBS"/>
+                        <outlet property="fourthTrackButton" destination="6el-za-LXf" id="P1K-2I-a5W"/>
                         <outlet property="fourthTrackImageView" destination="bfT-X3-xdE" id="Hvx-hF-0GQ"/>
                         <outlet property="nameLabel" destination="Y9b-wP-jKg" id="NVU-DC-kRN"/>
                         <outlet property="profileImageView" destination="2r5-Mz-6FD" id="WYW-nF-ivX"/>
                         <outlet property="scrollView" destination="HEW-E8-L79" id="Xvz-W4-tZa"/>
                         <outlet property="secondArtistLabel" destination="hN2-Ba-Whr" id="mSn-7S-8dU"/>
                         <outlet property="secondTitleLabel" destination="T2d-y5-5K6" id="VVJ-B7-QpJ"/>
+                        <outlet property="secondTrackButton" destination="0tg-VD-6gz" id="nSg-EF-ZyK"/>
                         <outlet property="secondTrackImageView" destination="izv-44-etE" id="nAg-pM-9UR"/>
                         <outlet property="thirdArtistLabel" destination="2fO-2c-KYl" id="KJa-Ik-P31"/>
                         <outlet property="thirdTitleLabel" destination="xVl-lf-E9h" id="tKg-88-Ky5"/>
+                        <outlet property="thirdTrackButton" destination="UP5-M3-rZi" id="5Jk-Kc-Lu0"/>
                         <outlet property="thirdTrackImageView" destination="yNa-EQ-7DE" id="LQL-8O-oAG"/>
                         <outlet property="toMatchesButton" destination="Owj-KR-qut" id="JNS-1Y-lkM"/>
                         <outlet property="toSearchButton" destination="Tie-Zi-IWI" id="yVF-fT-9GH"/>
@@ -394,12 +433,15 @@
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="questionmark" catalog="system" width="96" height="128"/>
+        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

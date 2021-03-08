@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 import Firebase
 
 class ProfileViewController: UIViewController {
@@ -13,21 +14,27 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var currentTrackImageView: UIImageView!
+    @IBOutlet weak var currentTrackButton: UIButton!
     @IBOutlet weak var currentTitleLabel: UILabel!
     @IBOutlet weak var currentArtistLabel: UILabel!
     @IBOutlet weak var firstTrackImageView: UIImageView!
+    @IBOutlet weak var firstTrackButton: UIButton!
     @IBOutlet weak var firstTitleLabel: UILabel!
     @IBOutlet weak var firstArtistLabel: UILabel!
     @IBOutlet weak var secondTrackImageView: UIImageView!
+    @IBOutlet weak var secondTrackButton: UIButton!
     @IBOutlet weak var secondTitleLabel: UILabel!
     @IBOutlet weak var secondArtistLabel: UILabel!
     @IBOutlet weak var thirdTrackImageView: UIImageView!
+    @IBOutlet weak var thirdTrackButton: UIButton!
     @IBOutlet weak var thirdTitleLabel: UILabel!
     @IBOutlet weak var thirdArtistLabel: UILabel!
     @IBOutlet weak var fourthTrackImageView: UIImageView!
+    @IBOutlet weak var fourthTrackButton: UIButton!
     @IBOutlet weak var fourthTitleLabel: UILabel!
     @IBOutlet weak var fourthArtistLabel: UILabel!
     @IBOutlet weak var fifthTrackImageView: UIImageView!
+    @IBOutlet weak var fifthTrackButton: UIButton!
     @IBOutlet weak var fifthTitleLabel: UILabel!
     @IBOutlet weak var fifthArtistLabel: UILabel!
     @IBOutlet weak var toSearchButton: UIButton!
@@ -35,9 +42,23 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var toSettingsButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var player: AVPlayer?
+    var playerItem: AVPlayerItem?
+    
     override func viewDidLoad() {
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 2000)
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 970)
+        
+        self.currentTrackButton.layer.cornerRadius = 0.5 * self.currentTrackButton.bounds.size.width
+        self.firstTrackButton.layer.cornerRadius = 0.5 * self.currentTrackButton.bounds.size.width
+        self.secondTrackButton.layer.cornerRadius = 0.5 * self.currentTrackButton.bounds.size.width
+        self.thirdTrackButton.layer.cornerRadius = 0.5 * self.currentTrackButton.bounds.size.width
+        self.fourthTrackButton.layer.cornerRadius = 0.5 * self.currentTrackButton.bounds.size.width
+        self.fifthTrackButton.layer.cornerRadius = 0.5 * self.currentTrackButton.bounds.size.width
+        
         populateInfo()
+        
+        player = AVPlayer(playerItem: playerItem)
+        
         super.viewDidLoad()
     }
     
@@ -149,6 +170,138 @@ class ProfileViewController: UIViewController {
         } else {
             print("Document does not exist")
         }
+    }
+    
+    @IBAction func currentTrackButtonTapped(_ sender: Any) {
+        if self.player?.rate == 0  {
+            let db = Firestore.firestore()
+            
+            if let uid = Auth.auth().currentUser?.uid {
+                db.collection("users").document(uid).collection("tracks").document("currentTrack").getDocument { (snapshot, error) in
+                    if let document = snapshot {
+                        let trackPreview = document.get("trackPreview") as! String
+                        let trackPreviewURL = URL(string: trackPreview)
+                        let playerItem: AVPlayerItem = AVPlayerItem(url: trackPreviewURL!)
+                        self.player = AVPlayer(playerItem: playerItem)
+                        self.player?.play()
+                        self.currentTrackButton.setBackgroundImage(UIImage(systemName: "stop.circle.fill"), for: .normal)
+                    }
+                }
+            }
+       } else {
+            self.player?.pause()
+            self.currentTrackButton.setBackgroundImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+       }
+    }
+    
+    @IBAction func firstTrackButtonTapped(_ sender: Any) {
+        if self.player?.rate == 0 {
+            let db = Firestore.firestore()
+            
+            if let uid = Auth.auth().currentUser?.uid {
+                db.collection("users").document(uid).collection("tracks").document("rankedTrack1").getDocument { (snapshot, error) in
+                    if let document = snapshot {
+                        let trackPreview = document.get("trackPreview") as! String
+                        let trackPreviewURL = URL(string: trackPreview)
+                        let playerItem: AVPlayerItem = AVPlayerItem(url: trackPreviewURL!)
+                        self.player = AVPlayer(playerItem: playerItem)
+                        self.player?.play()
+                        self.firstTrackButton.setBackgroundImage(UIImage(systemName: "stop.circle.fill"), for: .normal)
+                    }
+                }
+            }
+       } else {
+            self.player?.pause()
+            self.firstTrackButton.setBackgroundImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+       }
+    }
+    
+    @IBAction func secondTrackButtonTapped(_ sender: Any) {
+        if self.player?.rate == 0 {
+            let db = Firestore.firestore()
+            
+            if let uid = Auth.auth().currentUser?.uid {
+                db.collection("users").document(uid).collection("tracks").document("rankedTrack2").getDocument { (snapshot, error) in
+                    if let document = snapshot {
+                        let trackPreview = document.get("trackPreview") as! String
+                        let trackPreviewURL = URL(string: trackPreview)
+                        let playerItem: AVPlayerItem = AVPlayerItem(url: trackPreviewURL!)
+                        self.player = AVPlayer(playerItem: playerItem)
+                        self.player?.play()
+                        self.secondTrackButton.setBackgroundImage(UIImage(systemName: "stop.circle.fill"), for: .normal)
+                    }
+                }
+            }
+       } else {
+            self.player?.pause()
+            self.secondTrackButton.setBackgroundImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+       }
+    }
+    
+    @IBAction func thirdTrackButtonTapped(_ sender: Any) {
+        if self.player?.rate == 0 {
+            let db = Firestore.firestore()
+            
+            if let uid = Auth.auth().currentUser?.uid {
+                db.collection("users").document(uid).collection("tracks").document("rankedTrack3").getDocument { (snapshot, error) in
+                    if let document = snapshot {
+                        let trackPreview = document.get("trackPreview") as! String
+                        let trackPreviewURL = URL(string: trackPreview)
+                        let playerItem: AVPlayerItem = AVPlayerItem(url: trackPreviewURL!)
+                        self.player = AVPlayer(playerItem: playerItem)
+                        self.player?.play()
+                        self.thirdTrackButton.setBackgroundImage(UIImage(systemName: "stop.circle.fill"), for: .normal)
+                    }
+                }
+            }
+       } else {
+            self.player?.pause()
+            self.thirdTrackButton.setBackgroundImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+       }
+    }
+    
+    @IBAction func fourthTrackButtonTapped(_ sender: Any) {
+        if self.player?.rate == 0 {
+            let db = Firestore.firestore()
+            
+            if let uid = Auth.auth().currentUser?.uid {
+                db.collection("users").document(uid).collection("tracks").document("rankedTrack4").getDocument { (snapshot, error) in
+                    if let document = snapshot {
+                        let trackPreview = document.get("trackPreview") as! String
+                        let trackPreviewURL = URL(string: trackPreview)
+                        let playerItem: AVPlayerItem = AVPlayerItem(url: trackPreviewURL!)
+                        self.player = AVPlayer(playerItem: playerItem)
+                        self.player?.play()
+                        self.fourthTrackButton.setBackgroundImage(UIImage(systemName: "stop.circle.fill"), for: .normal)
+                    }
+                }
+            }
+       } else {
+            self.player?.pause()
+            self.fourthTrackButton.setBackgroundImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+       }
+    }
+    
+    @IBAction func fifthTrackButtonTapped(_ sender: Any) {
+        if self.player?.rate == 0 {
+            let db = Firestore.firestore()
+            
+            if let uid = Auth.auth().currentUser?.uid {
+                db.collection("users").document(uid).collection("tracks").document("rankedTrack5").getDocument { (snapshot, error) in
+                    if let document = snapshot {
+                        let trackPreview = document.get("trackPreview") as! String
+                        let trackPreviewURL = URL(string: trackPreview)
+                        let playerItem: AVPlayerItem = AVPlayerItem(url: trackPreviewURL!)
+                        self.player = AVPlayer(playerItem: playerItem)
+                        self.player?.play()
+                        self.fifthTrackButton.setBackgroundImage(UIImage(systemName: "stop.circle.fill"), for: .normal)
+                    }
+                }
+            }
+       } else {
+            self.player?.pause()
+            self.fifthTrackButton.setBackgroundImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+       }
     }
     
     @IBAction func toSearchButtonTapped(_ sender: Any) {
