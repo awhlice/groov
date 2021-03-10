@@ -228,14 +228,15 @@ extension SearchViewController: MKMapViewDelegate {
             db.collection("users").document(userB).getDocument { (snapshot, error) in
                 if let document = snapshot {
                     let likesArray = document.get("likes") as! Array<String>
+                    let matchesArray = document.get("matches") as! Array<String>
                     
                     if likesArray.contains(userA) {
                         // if user a and user b like eachother's tracks, then they are matched together
                         db.collection("users").document(userA).updateData(["matches": FieldValue.arrayUnion(["\(String(describing: userB))"])])
                         db.collection("users").document(userB).updateData(["matches": FieldValue.arrayUnion(["\(String(describing: userA))"])])
                         db.collection("users").document(userB).updateData(["likes": FieldValue.arrayRemove(["\(String(describing: userA))"])])
-                    } else {
-                        // if not, user b is added to user a's list of liked users
+                    } else if matchesArray.contains(userA) == false {
+                        // if not and the users aren't already matched to eachother, then user b is added to user a's list of liked users
                         db.collection("users").document(userA).updateData(["likes": FieldValue.arrayUnion(["\(String(describing: userB))"])])
                     }
                 }
