@@ -66,18 +66,20 @@ class ProfileViewController: UIViewController {
         let db = Firestore.firestore()
         
         if let uid = Auth.auth().currentUser?.uid {
-            db.collection("users").document(uid).collection("tracks").document("currentTrack").getDocument { (snapshot, error) in
+            db.collection("users").document(uid).getDocument { (snapshot, error) in
                 if let document = snapshot {
-                    let trackImage = document.get("trackImage") as! String
-                    let trackImageURL = NSURL(string: trackImage)
-                    let trackData = NSData(contentsOf:trackImageURL! as URL)
-                    if trackData != nil {
-                        self.currentTrackImageView.image = UIImage(data:trackData! as Data)
+                    if (document.get("currentTrackImage") != nil) {
+                        let trackImage = document.get("currentTrackImage") as! String
+                        let trackImageURL = NSURL(string: trackImage)
+                        let trackData = NSData(contentsOf:trackImageURL! as URL)
+                        if trackData != nil {
+                            self.currentTrackImageView.image = UIImage(data:trackData! as Data)
+                        }
+                        let trackTitle = document.get("currentTrackName") as! String
+                        self.currentTitleLabel.text = trackTitle
+                        let trackArtist = document.get("currentTrackArtist") as! String
+                        self.currentArtistLabel.text = trackArtist
                     }
-                    let trackTitle = document.get("trackName") as! String
-                    self.currentTitleLabel.text = trackTitle
-                    let trackArtist = document.get("trackArtist") as! String
-                    self.currentArtistLabel.text = trackArtist
                 }
             }
             db.collection("users").document(uid).collection("tracks").document("rankedTrack1").getDocument { (snapshot, error) in
@@ -177,14 +179,16 @@ class ProfileViewController: UIViewController {
             let db = Firestore.firestore()
             
             if let uid = Auth.auth().currentUser?.uid {
-                db.collection("users").document(uid).collection("tracks").document("currentTrack").getDocument { (snapshot, error) in
+                db.collection("users").document(uid).getDocument { (snapshot, error) in
                     if let document = snapshot {
-                        let trackPreview = document.get("trackPreview") as! String
-                        let trackPreviewURL = URL(string: trackPreview)
-                        let playerItem: AVPlayerItem = AVPlayerItem(url: trackPreviewURL!)
-                        self.player = AVPlayer(playerItem: playerItem)
-                        self.player?.play()
-                        self.currentTrackButton.setBackgroundImage(UIImage(systemName: "stop.circle.fill"), for: .normal)
+                        if (document.get("currentTrackPreview") != nil) {
+                            let trackPreview = document.get("currentTrackPreview") as! String
+                            let trackPreviewURL = URL(string: trackPreview)
+                            let playerItem: AVPlayerItem = AVPlayerItem(url: trackPreviewURL!)
+                            self.player = AVPlayer(playerItem: playerItem)
+                            self.player?.play()
+                            self.currentTrackButton.setBackgroundImage(UIImage(systemName: "stop.circle.fill"), for: .normal)
+                            }
                     }
                 }
             }

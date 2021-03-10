@@ -94,7 +94,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                     storedImage.downloadURL(completion: { (url, err) in
                         if err != nil {}
                         let urlText = url!.absoluteString
-                        db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": urlText])
+                        db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": urlText, "likes": [String](), "matches": [String]()])
                     })
                 })
             }
