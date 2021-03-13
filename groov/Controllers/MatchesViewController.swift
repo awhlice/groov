@@ -9,16 +9,21 @@ import UIKit
 
 class MatchesViewController: UIViewController {
 
+    // MARK: - Subviews
     @IBOutlet weak var toProfileButton: UIButton!
     @IBOutlet weak var toSearchButton: UIButton!
     @IBOutlet weak var toLogoutButton: UIButton!
     
+    // MARK: - VC Lifecycle
     override func viewDidLoad() {
         self.toLogoutButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2))
         
         super.viewDidLoad()
     }
     
+    // MARK: - IBActions
+    
+    // transitions the user to their profile screen
     @IBAction func toProfileButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Profile", bundle: .main)
 
@@ -28,6 +33,7 @@ class MatchesViewController: UIViewController {
         }
     }
     
+    // transitions the user to the search screen
     @IBAction func toSearchButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Search", bundle: .main)
 
@@ -37,6 +43,7 @@ class MatchesViewController: UIViewController {
         }
     }
     
+    // logs out the user and transitions them back to the login screen
     @IBAction func toLogoutButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Login", bundle: .main)
 

@@ -11,6 +11,7 @@ import Firebase
 
 class ProfileViewController: UIViewController {
     
+    // MARK: - Subviews
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var currentTrackImageView: UIImageView!
@@ -45,6 +46,7 @@ class ProfileViewController: UIViewController {
     var player: AVPlayer?
     var playerItem: AVPlayerItem?
     
+    // MARK: - VC Lifecycle
     override func viewDidLoad() {
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 970)
         
@@ -64,6 +66,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // loads the user's profile with the image, title name, and artist name of their currently playing track and top five most played tracks
     func populateInfo() {
         let db = Firestore.firestore()
         
@@ -176,6 +179,9 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
+    
+    // plays a thirty second audio snippet of the user's current/ most recently played track
     @IBAction func currentTrackButtonTapped(_ sender: Any) {
         if self.player?.rate == 0  {
             let db = Firestore.firestore()
@@ -200,6 +206,7 @@ class ProfileViewController: UIViewController {
        }
     }
     
+    // plays a thirty second audio snippet of the user's top played track
     @IBAction func firstTrackButtonTapped(_ sender: Any) {
         if self.player?.rate == 0 {
             let db = Firestore.firestore()
@@ -222,6 +229,7 @@ class ProfileViewController: UIViewController {
        }
     }
     
+    // plays a thirty second audio snippet of the user's second top played track
     @IBAction func secondTrackButtonTapped(_ sender: Any) {
         if self.player?.rate == 0 {
             let db = Firestore.firestore()
@@ -244,6 +252,7 @@ class ProfileViewController: UIViewController {
        }
     }
     
+    // plays a thirty second audio snippet of the user's third top played track
     @IBAction func thirdTrackButtonTapped(_ sender: Any) {
         if self.player?.rate == 0 {
             let db = Firestore.firestore()
@@ -266,6 +275,7 @@ class ProfileViewController: UIViewController {
        }
     }
     
+    // plays a thirty second audio snippet of the user's fourth top played track
     @IBAction func fourthTrackButtonTapped(_ sender: Any) {
         if self.player?.rate == 0 {
             let db = Firestore.firestore()
@@ -288,6 +298,7 @@ class ProfileViewController: UIViewController {
        }
     }
     
+    // plays a thirty second audio snippet of the user's fifth top played track
     @IBAction func fifthTrackButtonTapped(_ sender: Any) {
         if self.player?.rate == 0 {
             let db = Firestore.firestore()
@@ -310,6 +321,7 @@ class ProfileViewController: UIViewController {
        }
     }
     
+    // transitions the user to the search screen
     @IBAction func toSearchButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Search", bundle: .main)
 
@@ -319,6 +331,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    // transitions the user to their matches screen
     @IBAction func toMatchesButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Matches", bundle: .main)
 
@@ -328,6 +341,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    // logs out the user and transitions them back to the login screen
     @IBAction func toLogoutButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Login", bundle: .main)
 

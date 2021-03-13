@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // transitions the user to the search screen
     func transitionToSearch() {
         let storyboard = UIStoryboard(name: "Search", bundle: .main)
 
@@ -32,6 +33,8 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - IBActions
+    
+    // logs the user in if they enter the correct login info
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         let email = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -48,6 +51,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // transitions the user to the signup screen
     @IBAction func signUpButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "toSignUp", sender: self)
     }

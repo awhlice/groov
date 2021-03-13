@@ -44,6 +44,7 @@ final class AuthManager {
         return UserDefaults.standard.object(forKey: "expirationDate") as? Date
     }
     
+    // checks if the current token needs to be refreshed
     private var shouldRefreshToken: Bool {
         guard let expirationDate = tokenExpirationDate else {
             return false
@@ -53,6 +54,7 @@ final class AuthManager {
         return currentDate.addingTimeInterval(fiveMinutes) >= expirationDate
     }
     
+    // exchanges the user's login code for a token to be used in the Spotify API calls
     public func exchangeCodeForToken( code: String, completion: @escaping ((Bool) -> Void)) {
         guard let url = URL(string: Constants.tokenAPIURL) else {
             return
@@ -119,6 +121,7 @@ final class AuthManager {
         }
     }
     
+    // refreshes the user's current token if it is about to expire
     public func refreshIfNeeded(completion: @escaping (Bool) -> Void) {
         guard !refreshingToken else {
             return
@@ -182,6 +185,7 @@ final class AuthManager {
         task.resume()
     }
     
+    // saves the user's current token
     private func cacheToken(result: AuthResponse) {
         UserDefaults.standard.setValue(result.access_token, forKey: "access_token")
         if let refresh_token = result.refresh_token {

@@ -14,6 +14,7 @@ import Firebase
 
 class SearchViewController: UIViewController {
 
+    // MARK: - Subviews
     @IBOutlet weak var toProfileButton: UIButton!
     @IBOutlet weak var toMatchesButton: UIButton!
     @IBOutlet weak var toLogoutButton: UIButton!
@@ -24,6 +25,7 @@ class SearchViewController: UIViewController {
     
     fileprivate let locationManager: CLLocationManager = CLLocationManager()
     
+    // MARK: - VC Lifecycle
     override func viewDidLoad() {
         player = AVPlayer(playerItem: playerItem)
         mapView.delegate = self
@@ -37,6 +39,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // updates the user's location in the database and pinned location on the map
     private func updateUserLocation() {
         let db = Firestore.firestore()
         
@@ -55,12 +58,14 @@ class SearchViewController: UIViewController {
         }
     }
     
+    // updates the user's currently playing track in the database
     private func updateUserCurrentTrack(with model: CurrentTrack) {
         let db = Firestore.firestore()
         
         db.collection("users").document(Auth.auth().currentUser!.uid).setData(["currentTrackName": model.item.name, "currentTrackArtist": model.item.album.artists[0].name, "currentTrackImage": model.item.album.images[0].url, "currentTrackPreview": model.item.preview_url], merge: true)
     }
     
+    // updates the user's top five most played tracks in the database
     private func updateUserTopTracks(with model: RankedTrack) {
         let db = Firestore.firestore()
         
@@ -69,6 +74,7 @@ class SearchViewController: UIViewController {
         }
     }
     
+    // updates the users current track listening info in the database
     private func getUserInfo() {
         APICaller.shared.getCurrentTrack { [weak self] result in
             DispatchQueue.main.async {
@@ -93,6 +99,7 @@ class SearchViewController: UIViewController {
         }
     }
     
+    // pins the location of nearby Groov users on the map and retrieves info for the track they're currently listening to populate their annotation popups; avoids pinning the location of users who have already matched with the current user for privacy purposes
     private func locateOtherUsers() {
         let northEast = mapView.convert(CGPoint(x: mapView.bounds.width, y: 0), toCoordinateFrom: mapView)
         let southWest = mapView.convert(CGPoint(x: 0, y: mapView.bounds.height), toCoordinateFrom: mapView)
@@ -112,26 +119,38 @@ class SearchViewController: UIViewController {
                     
                     if (document.get("currentTrackImage") != nil) {
                         let userID = document.documentID
-                        let trackImage = document.get("currentTrackImage") as! String
-                        let trackPreview = document.get("currentTrackPreview") as! String
-                        let trackName = document.get("currentTrackName") as! String
-                        let trackArtist = document.get("currentTrackArtist") as! String
                         
-                        let annotation = CustomAnnotation(
-                            userID: "\(userID)",
-                            trackName: "\(trackName)",
-                            trackArtist: "\(trackArtist)",
-                            trackImage: "\(trackImage)",
-                            trackPreview: "\(trackPreview)",
-                            coordinate: CLLocationCoordinate2D(latitude: userGeopoint.latitude, longitude: userGeopoint.longitude))
-                        
-                        self.mapView.addAnnotation(annotation)
+                        dbRef.document(Auth.auth().currentUser!.uid).getDocument { (snapshot2, error2) in
+                            if let document2 = snapshot2 {
+                                let matchesArray = document2.get("matches") as! Array<String>
+                                
+                                if matchesArray.contains(userID) == false {
+                                    let trackImage = document.get("currentTrackImage") as! String
+                                    let trackPreview = document.get("currentTrackPreview") as! String
+                                    let trackName = document.get("currentTrackName") as! String
+                                    let trackArtist = document.get("currentTrackArtist") as! String
+                                    
+                                    let annotation = CustomAnnotation(
+                                        userID: "\(userID)",
+                                        trackName: "\(trackName)",
+                                        trackArtist: "\(trackArtist)",
+                                        trackImage: "\(trackImage)",
+                                        trackPreview: "\(trackPreview)",
+                                        coordinate: CLLocationCoordinate2D(latitude: userGeopoint.latitude, longitude: userGeopoint.longitude))
+                                    
+                                    self.mapView.addAnnotation(annotation)
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
     
+    // MARK: - IBActions
+    
+    // transitions the user to their profile screen
     @IBAction func toProfileButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Profile", bundle: .main)
 
@@ -141,6 +160,7 @@ class SearchViewController: UIViewController {
         }
     }
     
+    // transitions the user to their matches screen
     @IBAction func toMatchesButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Matches", bundle: .main)
 
@@ -150,6 +170,7 @@ class SearchViewController: UIViewController {
         }
     }
     
+    // logs out the user and transitions them back to the login screen
     @IBAction func toLogoutButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Login", bundle: .main)
 
@@ -160,6 +181,8 @@ class SearchViewController: UIViewController {
     }
 }
 
+// handles the formatting of the annotation popups that are displayed when the user clicks on another user's pinned location
+// each annotation displays the image, title name, and artist name of the pinned user's currently/ most recently played track; it also includes the option to play a thirty second snippet of said track as well as "like" the user's choice of track for potential matching
 extension SearchViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? CustomAnnotation else {
@@ -173,6 +196,7 @@ extension SearchViewController: MKMapViewDelegate {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
+            // formats annotation popup display
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
@@ -199,7 +223,7 @@ extension SearchViewController: MKMapViewDelegate {
         
         if view.leftCalloutAccessoryView == control {
             if self.player?.rate == 0 {
-                print("yuh")
+                // begins playing track snippet
                 let trackPreviewURL = URL(string: annotation.trackPreview!)
                 let playerItem: AVPlayerItem = AVPlayerItem(url: trackPreviewURL!)
                 self.player = AVPlayer(playerItem: playerItem)
@@ -212,6 +236,7 @@ extension SearchViewController: MKMapViewDelegate {
                 playButton.tintColor = UIColor.systemIndigo
                 view.leftCalloutAccessoryView = playButton
            } else {
+                // stops playing track snippet
                 self.player?.pause()
                 let trackImageURL = NSURL(string: annotation.trackImage!)
                 let trackData = NSData(contentsOf:trackImageURL! as URL)

@@ -20,6 +20,7 @@ final class APICaller {
         case failedtoGetData
     }
     
+    // creates a Spotify API request to get the current track that the user is playing
     public func getCurrentTrack(completion: @escaping (Result<CurrentTrack, Error>) -> Void) {
         createRequest(with: URL(string: Constants.baseAPIURL + "/me/player/currently-playing"), type: .GET) { baseRequest in
             let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
@@ -40,6 +41,7 @@ final class APICaller {
         }
     }
     
+    // creates a Spotify API request to get the user's top five most listened to tracks
     public func getTopTracks(completion: @escaping (Result<RankedTrack, Error>) -> Void) {
         createRequest(with: URL(string: Constants.baseAPIURL + "/me/top/tracks?limit=5"), type: .GET) { baseRequest in
             let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
@@ -64,6 +66,7 @@ final class APICaller {
         case POST
     }
     
+    // generalized API call request
     private func createRequest(with url: URL?, type: HTTPMethod, completion: @escaping (URLRequest) -> Void) {
         AuthManager.shared.withValidToken { token in
             guard let apiURL = url else {

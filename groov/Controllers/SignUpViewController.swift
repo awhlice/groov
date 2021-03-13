@@ -30,6 +30,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePicker.delegate = self
     }
     
+    // tells the delegate that the user picked an image and displays the image the user chose as their profile picture on the signup screen
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage {
             self.uploadImageButton.isEnabled = false
@@ -39,6 +40,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
 
+    // displays a popup alert with a specified title and message
     func showAlert(Title : String!, Message : String!)  -> UIAlertController {
         let alertController : UIAlertController = UIAlertController(title: Title, message: Message, preferredStyle: .alert)
         let okAction : UIAlertAction = UIAlertAction(title: "Ok", style: .default)
@@ -51,12 +53,14 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         return alertController
       }
     
+    // checks if the user entered a valid email
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
     
+    // checks if the user has filled in all their account detail fields
     func validateFields() -> String? {
         if self.imageView.image == nil {
             return "Please upload a profile image."
@@ -78,6 +82,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         return nil
     }
     
+    // signs the user up by adding their info in the Firestore database in the form of a document titled their user ID
+    // records their first name, last name, email address, password, and profile image on their document and initializes two separate arrays that will 1) store the user IDs of the users they have liked and 2) store the user IDs of the users they have matched with
     func signUpUser() {
         let firstName = self.firstNameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let lastName = self.lastNameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -102,9 +108,12 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     // MARK: - IBActions
+    
+    // presents the users two options to select their profile image and hnadles uploading the image onto the screen
     @IBAction func uploadImageButtonTapped(_ sender: Any) {
         let alertController : UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        // gives the user the option to take a photo in realtime for their profile
         let cameraAction : UIAlertAction = UIAlertAction(title: "Take Photo", style: .default, handler: {(cameraAction) in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) == true {
                 self.imagePicker.sourceType = .camera
@@ -114,6 +123,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
         })
         
+        // gives the user the option to upload a photo from their photo library for their profile
         let libraryAction : UIAlertAction = UIAlertAction(title: "Choose from Library", style: .default, handler: {(libraryAction) in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) == true {
                 self.imagePicker.sourceType = .photoLibrary
@@ -135,6 +145,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.present(alertController, animated: true, completion: nil)
     }
     
+    // transitions the user to a webview of the Spotify login screen to allow the user to connect their Groov account to their Spotify
     @IBAction func connectSpotifyButtonTapped(_ sender: Any) {
         let error = validateFields()
         if error != nil {
@@ -143,7 +154,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         } else {
             signUpUser()
             let authViewController = AuthViewController()
-            authViewController.completionHandler = { [weak self] success in
+            authViewController.completionHandler = { success in
                 DispatchQueue.main.async {
                 }
             }
@@ -151,6 +162,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
         
+    // transitions the user back to the login screen
     @IBAction func nevermindButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "toLogin", sender: self)
     }

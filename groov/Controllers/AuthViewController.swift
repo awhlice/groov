@@ -39,6 +39,7 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         webView.frame = view.bounds
     }
     
+    // transitions the user to the search screen of the app
     func transitionToSearch() {
         let storyboard = UIStoryboard(name: "Search", bundle: .main)
 
@@ -48,6 +49,7 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         }
     }
     
+    // displays Spotfiy login website, so user can sign in and link their Groov account with their Spotify
     func webView (_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation) {
         guard let url = webView.url else {
             return
