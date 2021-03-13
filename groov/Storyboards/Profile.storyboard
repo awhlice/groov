@@ -373,13 +373,13 @@
                                             <action selector="toMatchesButtonTapped:" destination="XgM-8c-2dv" eventType="touchUpInside" id="vNu-ow-qpk"/>
                                         </connections>
                                     </button>
-                                    <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hP-Af-IYU" userLabel="toSettingsButton">
+                                    <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hP-Af-IYU" userLabel="toLogoutButton">
                                         <rect key="frame" x="323" y="11" width="80" height="100"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" backgroundImage="gearshape" catalog="system"/>
+                                        <state key="normal" backgroundImage="square.and.arrow.up" catalog="system"/>
                                         <connections>
-                                            <action selector="toSettingsButtonTapped:" destination="XgM-8c-2dv" eventType="touchUpInside" id="Do8-Rz-ecd"/>
+                                            <action selector="toLogoutButtonTapped:" destination="XgM-8c-2dv" eventType="touchUpInside" id="LjJ-lV-C4R"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -417,9 +417,9 @@
                         <outlet property="thirdTitleLabel" destination="xVl-lf-E9h" id="tKg-88-Ky5"/>
                         <outlet property="thirdTrackButton" destination="UP5-M3-rZi" id="5Jk-Kc-Lu0"/>
                         <outlet property="thirdTrackImageView" destination="yNa-EQ-7DE" id="LQL-8O-oAG"/>
+                        <outlet property="toLogoutButton" destination="8hP-Af-IYU" id="g5K-L3-SYS"/>
                         <outlet property="toMatchesButton" destination="Owj-KR-qut" id="JNS-1Y-lkM"/>
                         <outlet property="toSearchButton" destination="Tie-Zi-IWI" id="yVF-fT-9GH"/>
-                        <outlet property="toSettingsButton" destination="8hP-Af-IYU" id="e5x-q4-dr8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9c6-mR-gOk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -428,12 +428,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

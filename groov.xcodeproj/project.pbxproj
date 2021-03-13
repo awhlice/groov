@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		2900616A25DF56E000A5CD0E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2900616925DF56E000A5CD0E /* Profile.storyboard */; };
 		2900616D25DF56F400A5CD0E /* Matches.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2900616C25DF56F400A5CD0E /* Matches.storyboard */; };
-		2900617125DF573900A5CD0E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2900617025DF573900A5CD0E /* Settings.storyboard */; };
 		2900617425DF574E00A5CD0E /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900617325DF574E00A5CD0E /* MatchesViewController.swift */; };
 		2900617725DF575E00A5CD0E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900617625DF575E00A5CD0E /* ProfileViewController.swift */; };
-		2900617A25DF576900A5CD0E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900617925DF576900A5CD0E /* SettingsViewController.swift */; };
 		29123F8225D73E2D00924C61 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29123F8125D73E2D00924C61 /* Search.storyboard */; };
 		29123F8525D73E4D00924C61 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29123F8425D73E4D00924C61 /* SearchViewController.swift */; };
 		29198AEC25E4682E0027FBD7 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29198AEB25E4682E0027FBD7 /* APICaller.swift */; };
@@ -38,10 +36,8 @@
 /* Begin PBXFileReference section */
 		2900616925DF56E000A5CD0E /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2900616C25DF56F400A5CD0E /* Matches.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Matches.storyboard; sourceTree = "<group>"; };
-		2900617025DF573900A5CD0E /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2900617325DF574E00A5CD0E /* MatchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
 		2900617625DF575E00A5CD0E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		2900617925DF576900A5CD0E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		29123F8125D73E2D00924C61 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		29123F8425D73E4D00924C61 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		29198AEB25E4682E0027FBD7 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -98,7 +94,6 @@
 				29123F8125D73E2D00924C61 /* Search.storyboard */,
 				2900616C25DF56F400A5CD0E /* Matches.storyboard */,
 				2900616925DF56E000A5CD0E /* Profile.storyboard */,
-				2900617025DF573900A5CD0E /* Settings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -112,7 +107,6 @@
 				29123F8425D73E4D00924C61 /* SearchViewController.swift */,
 				2900617325DF574E00A5CD0E /* MatchesViewController.swift */,
 				2900617625DF575E00A5CD0E /* ProfileViewController.swift */,
-				2900617925DF576900A5CD0E /* SettingsViewController.swift */,
 				29198AF225E46EBD0027FBD7 /* AuthViewController.swift */,
 			);
 			path = Controllers;
@@ -254,7 +248,6 @@
 				29123F8225D73E2D00924C61 /* Search.storyboard in Resources */,
 				2946A81725D25C7500049044 /* Login.storyboard in Resources */,
 				2900616A25DF56E000A5CD0E /* Profile.storyboard in Resources */,
-				2900617125DF573900A5CD0E /* Settings.storyboard in Resources */,
 				2900616D25DF56F400A5CD0E /* Matches.storyboard in Resources */,
 				29EC2CAE25D259C2009DA806 /* Main.storyboard in Resources */,
 			);
@@ -332,7 +325,6 @@
 				2946A81A25D25CA900049044 /* LoginViewController.swift in Sources */,
 				2900617425DF574E00A5CD0E /* MatchesViewController.swift in Sources */,
 				2926613725E48E18000AE731 /* AuthResponse.swift in Sources */,
-				2900617A25DF576900A5CD0E /* SettingsViewController.swift in Sources */,
 				2988EED325F8874100DADBFF /* CustomAnnotation.swift in Sources */,
 				29EC2CAB25D259C2009DA806 /* ViewController.swift in Sources */,
 				29EC2CA725D259C2009DA806 /* AppDelegate.swift in Sources */,

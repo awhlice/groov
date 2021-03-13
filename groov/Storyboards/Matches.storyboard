@@ -44,13 +44,13 @@
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" backgroundImage="message.fill" catalog="system"/>
                                     </button>
-                                    <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-aI-Vdc" userLabel="toSettingsButton">
+                                    <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-aI-Vdc" userLabel="toLogoutButton">
                                         <rect key="frame" x="323" y="11" width="80" height="100"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" backgroundImage="gearshape" catalog="system"/>
+                                        <state key="normal" backgroundImage="square.and.arrow.up" catalog="system"/>
                                         <connections>
-                                            <action selector="toSettingsButtonTapped:" destination="4IG-9L-I9Y" eventType="touchUpInside" id="p3d-d4-v4g"/>
+                                            <action selector="toLogoutButtonTapped:" destination="4IG-9L-I9Y" eventType="touchUpInside" id="C4j-uz-gww"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -61,9 +61,9 @@
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     </view>
                     <connections>
+                        <outlet property="toLogoutButton" destination="HF9-aI-Vdc" id="FBA-cd-FMv"/>
                         <outlet property="toProfileButton" destination="qon-jr-FjJ" id="0eS-o0-WEP"/>
                         <outlet property="toSearchButton" destination="XRd-og-mNZ" id="afP-u7-BL8"/>
-                        <outlet property="toSettingsButton" destination="HF9-aI-Vdc" id="PYA-s3-cGm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNY-Ag-SAo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -72,10 +72,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

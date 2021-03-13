@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var toProfileButton: UIButton!
     @IBOutlet weak var toMatchesButton: UIButton!
-    @IBOutlet weak var toSettingsButton: UIButton!
+    @IBOutlet weak var toLogoutButton: UIButton!
     @IBOutlet private var mapView: MKMapView!
     
     var player: AVPlayer?
@@ -32,6 +32,8 @@ class SearchViewController: UIViewController {
         getUserInfo()
         locateOtherUsers()
         
+        self.toLogoutButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2))
+                                        
         super.viewDidLoad()
     }
     
@@ -148,11 +150,11 @@ class SearchViewController: UIViewController {
         }
     }
     
-    @IBAction func toSettingsButtonTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Settings", bundle: .main)
+    @IBAction func toLogoutButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Login", bundle: .main)
 
-        if let settingsViewController = storyboard.instantiateInitialViewController() {
-            view.window?.rootViewController = settingsViewController
+        if let loginViewController = storyboard.instantiateInitialViewController() {
+            view.window?.rootViewController = loginViewController
             view.window?.makeKeyAndVisible()
         }
     }

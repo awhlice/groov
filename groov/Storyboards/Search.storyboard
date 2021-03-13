@@ -48,13 +48,13 @@
                                             <action selector="toMatchesButtonTapped:" destination="XAO-3I-lHg" eventType="touchUpInside" id="xEt-fm-tOV"/>
                                         </connections>
                                     </button>
-                                    <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNa-5a-vsu" userLabel="toSettingsButton">
+                                    <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNa-5a-vsu" userLabel="toLogoutButton">
                                         <rect key="frame" x="323" y="11" width="80" height="100"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" backgroundImage="gearshape" catalog="system"/>
+                                        <state key="normal" backgroundImage="square.and.arrow.up" catalog="system"/>
                                         <connections>
-                                            <action selector="toSettingsButtonTapped:" destination="XAO-3I-lHg" eventType="touchUpInside" id="dak-pe-3sF"/>
+                                            <action selector="toLogoutButtonTapped:" destination="XAO-3I-lHg" eventType="touchUpInside" id="AcD-LI-oNY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -66,9 +66,9 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="Y3f-Sa-ohH" id="JSW-yQ-1pO"/>
+                        <outlet property="toLogoutButton" destination="BNa-5a-vsu" id="caT-3x-oS3"/>
                         <outlet property="toMatchesButton" destination="HKU-OM-Xmn" id="cbD-4o-1KG"/>
                         <outlet property="toProfileButton" destination="w18-Cw-jrw" id="Ctr-43-OLP"/>
-                        <outlet property="toSettingsButton" destination="BNa-5a-vsu" id="A2F-JQ-agv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dft-2T-esD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -77,10 +77,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
