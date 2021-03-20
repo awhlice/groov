@@ -39,6 +39,19 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // displays a popup alert with a specified title and message
+    func showAlert(Title : String!, Message : String!)  -> UIAlertController {
+        let alertController : UIAlertController = UIAlertController(title: Title, message: Message, preferredStyle: .alert)
+        let okAction : UIAlertAction = UIAlertAction(title: "Ok", style: .default)
+
+        alertController.addAction(okAction)
+        
+        alertController.popoverPresentationController?.sourceView = view
+        alertController.popoverPresentationController?.sourceRect = view.frame
+
+        return alertController
+      }
+    
     // updates the user's location in the database and pinned location on the map
     private func updateUserLocation() {
         let db = Firestore.firestore()
@@ -113,32 +126,34 @@ class SearchViewController: UIViewController {
             .whereField("geopoint", isGreaterThan: geopoint2)
 
         query.getDocuments { snapshot, error in
-            for document in snapshot!.documents {
-                if document.documentID != Auth.auth().currentUser?.uid {
-                    let userGeopoint = document.get("geopoint") as! GeoPoint
-                    
-                    if (document.get("currentTrackImage") != nil) {
-                        let userID = document.documentID
+            if snapshot?.isEmpty == false {
+                for document in snapshot!.documents {
+                    if document.documentID != Auth.auth().currentUser?.uid {
+                        let userGeopoint = document.get("geopoint") as! GeoPoint
                         
-                        dbRef.document(Auth.auth().currentUser!.uid).getDocument { (snapshot2, error2) in
-                            if let document2 = snapshot2 {
-                                let matchesArray = document2.get("matches") as! Array<String>
-                                
-                                if matchesArray.contains(userID) == false {
-                                    let trackImage = document.get("currentTrackImage") as! String
-                                    let trackPreview = document.get("currentTrackPreview") as! String
-                                    let trackName = document.get("currentTrackName") as! String
-                                    let trackArtist = document.get("currentTrackArtist") as! String
+                        if (document.get("currentTrackImage") != nil) {
+                            let userID = document.documentID
+                            
+                            dbRef.document(Auth.auth().currentUser!.uid).getDocument { (snapshot2, error2) in
+                                if let document2 = snapshot2 {
+                                    let matchesArray = document2.get("matches") as! Array<String>
                                     
-                                    let annotation = CustomAnnotation(
-                                        userID: "\(userID)",
-                                        trackName: "\(trackName)",
-                                        trackArtist: "\(trackArtist)",
-                                        trackImage: "\(trackImage)",
-                                        trackPreview: "\(trackPreview)",
-                                        coordinate: CLLocationCoordinate2D(latitude: userGeopoint.latitude, longitude: userGeopoint.longitude))
-                                    
-                                    self.mapView.addAnnotation(annotation)
+                                    if matchesArray.contains(userID) == false {
+                                        let trackImage = document.get("currentTrackImage") as! String
+                                        let trackPreview = document.get("currentTrackPreview") as! String
+                                        let trackName = document.get("currentTrackName") as! String
+                                        let trackArtist = document.get("currentTrackArtist") as! String
+                                        
+                                        let annotation = CustomAnnotation(
+                                            userID: "\(userID)",
+                                            trackName: "\(trackName)",
+                                            trackArtist: "\(trackArtist)",
+                                            trackImage: "\(trackImage)",
+                                            trackPreview: "\(trackPreview)",
+                                            coordinate: CLLocationCoordinate2D(latitude: userGeopoint.latitude, longitude: userGeopoint.longitude))
+                                        
+                                        self.mapView.addAnnotation(annotation)
+                                    }
                                 }
                             }
                         }
@@ -208,7 +223,7 @@ extension SearchViewController: MKMapViewDelegate {
             playButton.tintColor = UIColor.systemIndigo
             view.leftCalloutAccessoryView = playButton
             let likeButton = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 35, height: 30)))
-            likeButton.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
+            likeButton.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
             likeButton.tintColor = UIColor.systemPink
             view.rightCalloutAccessoryView = likeButton
         }
@@ -247,6 +262,11 @@ extension SearchViewController: MKMapViewDelegate {
                 view.leftCalloutAccessoryView = playButton
            }
         } else {
+            let likeButton = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 35, height: 30)))
+            likeButton.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
+            likeButton.tintColor = UIColor.systemPink
+            view.rightCalloutAccessoryView = likeButton
+            
             let db = Firestore.firestore()
             
             // check if other user (user b) has also liked current user's (user a) tracks
@@ -258,10 +278,12 @@ extension SearchViewController: MKMapViewDelegate {
                     let matchesArray = document.get("matches") as! Array<String>
                     
                     if likesArray.contains(userA) {
-                        // if user a and user b like eachother's tracks, then they are matched together
+                        // if user a and user b like eachother's tracks, then they are matched together and user a is notified
                         db.collection("users").document(userA).updateData(["matches": FieldValue.arrayUnion(["\(String(describing: userB))"])])
                         db.collection("users").document(userB).updateData(["matches": FieldValue.arrayUnion(["\(String(describing: userA))"])])
                         db.collection("users").document(userB).updateData(["likes": FieldValue.arrayRemove(["\(String(describing: userA))"])])
+                        
+                        self.present(self.showAlert(Title: "It's a match!", Message: "You like eachother's music."), animated: true, completion: nil)
                     } else if matchesArray.contains(userA) == false {
                         // if not and the users aren't already matched to eachother, then user b is added to user a's list of liked users
                         db.collection("users").document(userA).updateData(["likes": FieldValue.arrayUnion(["\(String(describing: userB))"])])
