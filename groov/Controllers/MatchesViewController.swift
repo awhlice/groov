@@ -22,6 +22,7 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - VC Lifecycle
     override func viewDidLoad() {
         self.toLogoutButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2))
+        
         db = Firestore.firestore()
         
         getNumCells()
@@ -81,13 +82,22 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    // TODO: transitions the user to the messaging screen for the specified match
+    // passes on the tapped cell's index to the Messaging View Controller to know which match was selected for further messaging
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = tableView.indexPathForSelectedRow
+        let index = indexPath?.row
+        print("\(String(describing: index))")
+        let messagingViewController = segue.destination as! MessagingViewController
+        messagingViewController.index = index
+    }
+    
+    // transitions the user to the messaging screen for the specified match
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hi")
+        self.performSegue(withIdentifier: "toMessaging", sender: self)
     }
     
     // MARK: - IBActions
-    
+
     // transitions the user to their profile screen
     @IBAction func toProfileButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Profile", bundle: .main)

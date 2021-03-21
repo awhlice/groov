@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4IG-9L-I9Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EpQ-uE-64J">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -13,15 +13,15 @@
             <objects>
                 <viewController id="4IG-9L-I9Y" customClass="MatchesViewController" customModule="groov" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zyg-qP-5G4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1t-3z-xO1">
-                                <rect key="frame" x="-9" y="773" width="432" height="123"/>
+                                <rect key="frame" x="-9" y="773" width="432" height="69"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qon-jr-FjJ" userLabel="toProfileButton">
-                                        <rect key="frame" x="29" y="11" width="80" height="100"/>
+                                        <rect key="frame" x="29" y="11" width="80" height="46"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" backgroundImage="person.crop.circle" catalog="system"/>
@@ -30,7 +30,7 @@
                                         </connections>
                                     </button>
                                     <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRd-og-mNZ" userLabel="toSearchButton">
-                                        <rect key="frame" x="123" y="11" width="80" height="100"/>
+                                        <rect key="frame" x="123" y="11" width="80" height="46"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
@@ -39,13 +39,13 @@
                                         </connections>
                                     </button>
                                     <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opt-hc-2x2" userLabel="toMatchesButton">
-                                        <rect key="frame" x="223" y="11" width="80" height="100"/>
+                                        <rect key="frame" x="223" y="11" width="80" height="46"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" backgroundImage="message.fill" catalog="system"/>
                                     </button>
                                     <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF9-aI-Vdc" userLabel="toLogoutButton">
-                                        <rect key="frame" x="323" y="11" width="80" height="100"/>
+                                        <rect key="frame" x="323" y="11" width="80" height="46"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" backgroundImage="square.and.arrow.up" catalog="system"/>
@@ -115,18 +115,74 @@
                         <viewLayoutGuide key="safeArea" id="fJT-Wn-ryu"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="IuY-Df-eGw"/>
                     <connections>
                         <outlet property="tableView" destination="xKc-Cz-U01" id="VYw-As-Sii"/>
                         <outlet property="toLogoutButton" destination="HF9-aI-Vdc" id="FBA-cd-FMv"/>
                         <outlet property="toProfileButton" destination="qon-jr-FjJ" id="0eS-o0-WEP"/>
                         <outlet property="toSearchButton" destination="XRd-og-mNZ" id="afP-u7-BL8"/>
+                        <segue destination="PYp-bE-KhI" kind="show" identifier="toMessaging" id="SLs-5O-lfe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNY-Ag-SAo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="51.5625"/>
+            <point key="canvasLocation" x="944.92753623188412" y="51.5625"/>
+        </scene>
+        <!--Messaging View Controller-->
+        <scene sceneID="TtW-vH-N2V">
+            <objects>
+                <viewController id="PYp-bE-KhI" customClass="MessagingViewController" customModule="groov" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s7X-jN-Ruo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR5-fE-pMP" userLabel="testLabel">
+                                <rect key="frame" x="0.0" y="62" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Test">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="36" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ekd-xC-LjA"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yxN-sD-lhi"/>
+                    <connections>
+                        <outlet property="testLabel" destination="jR5-fE-pMP" id="2ZQ-DZ-boc"/>
+                        <segue destination="4IG-9L-I9Y" kind="show" identifier="toMatches" id="rso-lP-lvE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q35-z9-D7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="52"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B4B-9n-XqT">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="EpQ-uE-64J" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jyw-uC-0t2">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4IG-9L-I9Y" kind="relationship" relationship="rootViewController" id="Lmz-nj-Zyu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qDd-WL-xfA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="165" y="52"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rso-lP-lvE"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
