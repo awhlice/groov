@@ -20,6 +20,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var toLogoutButton: UIButton!
     @IBOutlet private var mapView: MKMapView!
     
+    var db: Firestore!
     var player: AVPlayer?
     var playerItem: AVPlayerItem?
     
@@ -27,15 +28,17 @@ class SearchViewController: UIViewController {
     
     // MARK: - VC Lifecycle
     override func viewDidLoad() {
+        self.toLogoutButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2))
+                                        
         player = AVPlayer(playerItem: playerItem)
         mapView.delegate = self
+        
+        db = Firestore.firestore()
         
         updateUserLocation()
         getUserInfo()
         locateOtherUsers()
         
-        self.toLogoutButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2))
-                                        
         super.viewDidLoad()
     }
     
@@ -54,8 +57,6 @@ class SearchViewController: UIViewController {
     
     // updates the user's location in the database and pinned location on the map
     private func updateUserLocation() {
-        let db = Firestore.firestore()
-        
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
@@ -73,15 +74,11 @@ class SearchViewController: UIViewController {
     
     // updates the user's currently playing track in the database
     private func updateUserCurrentTrack(with model: CurrentTrack) {
-        let db = Firestore.firestore()
-        
         db.collection("users").document(Auth.auth().currentUser!.uid).setData(["currentTrackName": model.item.name, "currentTrackArtist": model.item.album.artists[0].name, "currentTrackImage": model.item.album.images[0].url, "currentTrackPreview": model.item.preview_url], merge: true)
     }
     
     // updates the user's top five most played tracks in the database
     private func updateUserTopTracks(with model: RankedTrack) {
-        let db = Firestore.firestore()
-        
         for i in 1...5 {
             db.collection("users").document(Auth.auth().currentUser!.uid).collection("tracks").document("rankedTrack"+String(i)).setData(["trackName": model.items[i-1].name, "trackArtist": model.items[i-1].album.artists[0].name, "trackImage": model.items[i-1].album.images[0].url, "trackPreview": model.items[i-1].preview_url], merge: true)
         }
@@ -223,7 +220,7 @@ extension SearchViewController: MKMapViewDelegate {
             playButton.tintColor = UIColor.systemIndigo
             view.leftCalloutAccessoryView = playButton
             let likeButton = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 35, height: 30)))
-            likeButton.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
+            likeButton.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
             likeButton.tintColor = UIColor.systemPink
             view.rightCalloutAccessoryView = likeButton
         }

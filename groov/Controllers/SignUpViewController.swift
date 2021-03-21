@@ -24,10 +24,14 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nevermindButton: UIButton!
     
+    var db: Firestore!
+    
     // MARK: - VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        
+        db = Firestore.firestore()
     }
     
     // tells the delegate that the user picked an image and displays the image the user chose as their profile picture on the signup screen
@@ -91,7 +95,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         let password = self.passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-            let db = Firestore.firestore()
             let storageRef = Storage.storage().reference().child("user/\(String(describing: result!.user.uid))")
             let storedImage = storageRef.child("image/\(String(describing: result!.user.uid))")
             if let uploadData = self.imageView.image?.jpegData(compressionQuality: 1) {
@@ -100,7 +103,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                     storedImage.downloadURL(completion: { (url, err) in
                         if err != nil {}
                         let urlText = url!.absoluteString
-                        db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": urlText, "likes": [String](), "matches": [String]()])
+                        self.db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "email": email, "password": password, "image": urlText, "likes": [String](), "matches": [String]()])
                     })
                 })
             }

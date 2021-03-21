@@ -21,6 +21,7 @@
 		2946A81725D25C7500049044 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2946A81625D25C7500049044 /* Login.storyboard */; };
 		2946A81A25D25CA900049044 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946A81925D25CA900049044 /* LoginViewController.swift */; };
 		295BCC7925E4C96200730AE8 /* RankedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295BCC7825E4C96200730AE8 /* RankedTrack.swift */; };
+		296CEDB72606E563004EC5D4 /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296CEDB62606E563004EC5D4 /* MatchCell.swift */; };
 		2988EED325F8874100DADBFF /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2988EED225F8874100DADBFF /* CustomAnnotation.swift */; };
 		29AB211C25D5F70F00D8246D /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB211B25D5F70F00D8246D /* CurrentTrack.swift */; };
 		29AB212025D5F8FE00D8246D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB211F25D5F8FE00D8246D /* SignUpViewController.swift */; };
@@ -48,6 +49,7 @@
 		2946A81625D25C7500049044 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		2946A81925D25CA900049044 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		295BCC7825E4C96200730AE8 /* RankedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedTrack.swift; sourceTree = "<group>"; };
+		296CEDB62606E563004EC5D4 /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		2988EED225F8874100DADBFF /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		29AB211B25D5F70F00D8246D /* CurrentTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrack.swift; sourceTree = "<group>"; };
 		29AB211F25D5F8FE00D8246D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				29AB211B25D5F70F00D8246D /* CurrentTrack.swift */,
 				2926613625E48E18000AE731 /* AuthResponse.swift */,
 				295BCC7825E4C96200730AE8 /* RankedTrack.swift */,
+				296CEDB62606E563004EC5D4 /* MatchCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				2900617425DF574E00A5CD0E /* MatchesViewController.swift in Sources */,
 				2926613725E48E18000AE731 /* AuthResponse.swift in Sources */,
 				2988EED325F8874100DADBFF /* CustomAnnotation.swift in Sources */,
+				296CEDB72606E563004EC5D4 /* MatchCell.swift in Sources */,
 				29EC2CAB25D259C2009DA806 /* ViewController.swift in Sources */,
 				29EC2CA725D259C2009DA806 /* AppDelegate.swift in Sources */,
 				29AB211C25D5F70F00D8246D /* CurrentTrack.swift in Sources */,
