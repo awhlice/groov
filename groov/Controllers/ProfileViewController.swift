@@ -192,7 +192,7 @@ class ProfileViewController: UIViewController {
                     } else {
                         self.profileImageView.alpha = 1
                     }
-                    self.nameLabel.text = document.get("firstName") as! String
+                    self.nameLabel.text = document.get("firstName") as? String
                     self.nameLabel.alpha = 1
                 }
             }

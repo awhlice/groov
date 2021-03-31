@@ -66,7 +66,7 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let match = matchesArray[indexPath.row]
                 
                 self.db.collection("users").document(match).getDocument { (snapshot2, error) in
-                    cell.nameLabel.text = snapshot2!.get("firstName") as! String
+                    cell.nameLabel.text = snapshot2!.get("firstName") as? String
                     cell.nameLabel.alpha = 1
                     let image = snapshot2!.get("image") as! String
                     let url = NSURL(string: image)

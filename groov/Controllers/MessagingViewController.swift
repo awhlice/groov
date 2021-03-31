@@ -13,6 +13,7 @@ class MessagingViewController: MessagesViewController, MessagesDataSource, Messa
     // MARK: - Subviews
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var subview: UIView!
     
     typealias completion = (_ isFinished:Bool) -> Void
     
@@ -26,24 +27,27 @@ class MessagingViewController: MessagesViewController, MessagesDataSource, Messa
     override func viewDidLoad() {
         db = Firestore.firestore()
         
+        // updates message display screen with relevant info
         self.getChatInfo(completionHandler: { (isFinished) in
             if isFinished {
                 self.displayMessages(completionHandler: { (isFinished) in
                     if isFinished {
                         super.viewDidLoad()
+                        self.view.addSubview(self.subview)
+                        
+                        self.messagesCollectionView.contentInset.top = 120
+                        self.messagesCollectionView.messagesDataSource = self
+                        self.messagesCollectionView.messagesLayoutDelegate = self
+                        self.messagesCollectionView.messagesDisplayDelegate = self
                     }
                 })
             }
         })
-        
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messagesCollectionView.messagesDisplayDelegate = self
     }
     
     // returns the user that is currently sending messages
     func currentSender() -> SenderType {
-        return currentUser as! SenderType
+        return currentUser!
     }
     
     // returns the appropriate message for each row
@@ -71,7 +75,7 @@ class MessagingViewController: MessagesViewController, MessagesDataSource, Messa
                 let senderName = snapshot!.get("firstName") as! String
                 self.currentUser = Sender(senderId: Auth.auth().currentUser!.uid, displayName: senderName)
                 self.db.collection("users").document(userB).getDocument { (snapshot2, error) in
-                    self.nameLabel.text = snapshot2!.get("firstName") as! String
+                    self.nameLabel.text = snapshot2!.get("firstName") as? String
                     self.nameLabel.alpha = 1
                 }
             }
