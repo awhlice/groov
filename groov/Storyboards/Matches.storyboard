@@ -99,7 +99,7 @@
                             </tableView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwr-m8-HgR" userLabel="matchesLabel">
                                 <rect key="frame" x="0.0" y="58" width="414" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Matches">
                                         <attributes>
@@ -136,11 +136,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR5-fE-pMP" userLabel="testLabel">
-                                <rect key="frame" x="0.0" y="62" width="414" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" alpha="0.0" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR5-fE-pMP" userLabel="nameLabel">
+                                <rect key="frame" x="0.0" y="58" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Test">
+                                    <fragment content="First">
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="36" name="Helvetica-Bold"/>
@@ -150,19 +150,34 @@
                                 </attributedString>
                                 <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pLj-Sv-UFI">
+                                <rect key="frame" x="0.0" y="142" width="414" height="700"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDn-XI-oMO" userLabel="backButton">
+                                <rect key="frame" x="40" y="72" width="23" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="chevron.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="PYp-bE-KhI" eventType="touchUpInside" id="qGT-31-fhF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ekd-xC-LjA"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="yxN-sD-lhi"/>
                     <connections>
-                        <outlet property="testLabel" destination="jR5-fE-pMP" id="2ZQ-DZ-boc"/>
+                        <outlet property="backButton" destination="VDn-XI-oMO" id="22g-IA-z8l"/>
+                        <outlet property="nameLabel" destination="jR5-fE-pMP" id="sgi-KM-JTk"/>
                         <segue destination="4IG-9L-I9Y" kind="show" identifier="toMatches" id="rso-lP-lvE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q35-z9-D7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1754" y="52"/>
+            <point key="canvasLocation" x="1753.6231884057972" y="51.5625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B4B-9n-XqT">
@@ -185,6 +200,7 @@
         <segue reference="rso-lP-lvE"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>

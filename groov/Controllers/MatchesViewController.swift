@@ -66,9 +66,7 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let match = matchesArray[indexPath.row]
                 
                 self.db.collection("users").document(match).getDocument { (snapshot2, error) in
-                    let firstName = snapshot2!.get("firstName") as! String
-                    let lastName = snapshot2!.get("lastName") as! String
-                    cell.nameLabel.text = "\(firstName) \(lastName)"
+                    cell.nameLabel.text = snapshot2!.get("firstName") as! String
                     cell.nameLabel.alpha = 1
                     let image = snapshot2!.get("image") as! String
                     let url = NSURL(string: image)
@@ -88,7 +86,6 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let indexPath = tableView.indexPathForSelectedRow
         let index = indexPath?.row
-        print("\(String(describing: index))")
         let messagingViewController = segue.destination as! MessagingViewController
         messagingViewController.index = index
     }
