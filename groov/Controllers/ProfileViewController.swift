@@ -79,11 +79,15 @@ class ProfileViewController: UIViewController {
                         let trackData = NSData(contentsOf:trackImageURL! as URL)
                         if trackData != nil {
                             self.currentTrackImageView.image = UIImage(data:trackData! as Data)
+                            self.currentTrackImageView.alpha = 1
                         }
                         let trackTitle = document.get("currentTrackName") as! String
                         self.currentTitleLabel.text = trackTitle
+                        self.currentTitleLabel.alpha = 1
                         let trackArtist = document.get("currentTrackArtist") as! String
                         self.currentArtistLabel.text = trackArtist
+                        self.currentArtistLabel.alpha = 1
+                        self.currentTrackButton.alpha = 0.9
                     }
                 }
             }
@@ -94,11 +98,15 @@ class ProfileViewController: UIViewController {
                     let trackData = NSData(contentsOf:trackImageURL! as URL)
                     if trackData != nil {
                         self.firstTrackImageView.image = UIImage(data:trackData! as Data)
+                        self.firstTrackImageView.alpha = 1
                     }
                     let trackTitle = document.get("trackName") as! String
                     self.firstTitleLabel.text = trackTitle
+                    self.firstTitleLabel.alpha = 1
                     let trackArtist = document.get("trackArtist") as! String
                     self.firstArtistLabel.text = trackArtist
+                    self.firstArtistLabel.alpha = 1
+                    self.firstTrackButton.alpha = 0.9
                 }
             }
             db.collection("users").document(uid).collection("tracks").document("rankedTrack2").getDocument { (snapshot, error) in
@@ -108,11 +116,15 @@ class ProfileViewController: UIViewController {
                     let trackData = NSData(contentsOf:trackImageURL! as URL)
                     if trackData != nil {
                         self.secondTrackImageView.image = UIImage(data:trackData! as Data)
+                        self.secondTrackImageView.alpha = 1
                     }
                     let trackTitle = document.get("trackName") as! String
                     self.secondTitleLabel.text = trackTitle
+                    self.secondTitleLabel.alpha = 1
                     let trackArtist = document.get("trackArtist") as! String
                     self.secondArtistLabel.text = trackArtist
+                    self.secondArtistLabel.alpha = 1
+                    self.secondTrackButton.alpha = 0.9
                 }
             }
             db.collection("users").document(uid).collection("tracks").document("rankedTrack3").getDocument { (snapshot, error) in
@@ -122,11 +134,15 @@ class ProfileViewController: UIViewController {
                     let trackData = NSData(contentsOf:trackImageURL! as URL)
                     if trackData != nil {
                         self.thirdTrackImageView.image = UIImage(data:trackData! as Data)
+                        self.thirdTrackImageView.alpha = 1
                     }
                     let trackTitle = document.get("trackName") as! String
                     self.thirdTitleLabel.text = trackTitle
+                    self.thirdTitleLabel.alpha = 1
                     let trackArtist = document.get("trackArtist") as! String
                     self.thirdArtistLabel.text = trackArtist
+                    self.thirdArtistLabel.alpha = 1
+                    self.thirdTrackButton.alpha = 0.9
                 }
             }
             db.collection("users").document(uid).collection("tracks").document("rankedTrack4").getDocument { (snapshot, error) in
@@ -136,11 +152,15 @@ class ProfileViewController: UIViewController {
                     let trackData = NSData(contentsOf:trackImageURL! as URL)
                     if trackData != nil {
                         self.fourthTrackImageView.image = UIImage(data:trackData! as Data)
+                        self.fourthTrackImageView.alpha = 1
                     }
                     let trackTitle = document.get("trackName") as! String
                     self.fourthTitleLabel.text = trackTitle
+                    self.fourthTitleLabel.alpha = 1
                     let trackArtist = document.get("trackArtist") as! String
                     self.fourthArtistLabel.text = trackArtist
+                    self.fourthArtistLabel.alpha = 1
+                    self.fourthTrackButton.alpha = 0.9
                 }
             }
             db.collection("users").document(uid).collection("tracks").document("rankedTrack5").getDocument { (snapshot, error) in
@@ -150,11 +170,15 @@ class ProfileViewController: UIViewController {
                     let trackData = NSData(contentsOf:trackImageURL! as URL)
                     if trackData != nil {
                         self.fifthTrackImageView.image = UIImage(data:trackData! as Data)
+                        self.fifthTrackImageView.alpha = 1
                     }
                     let trackTitle = document.get("trackName") as! String
                     self.fifthTitleLabel.text = trackTitle
+                    self.fifthTitleLabel.alpha = 1
                     let trackArtist = document.get("trackArtist") as! String
                     self.fifthArtistLabel.text = trackArtist
+                    self.fifthArtistLabel.alpha = 1
+                    self.fifthTrackButton.alpha = 0.9
                 }
             }
             db.collection("users").document(uid).getDocument { (snapshot, error) in
@@ -170,8 +194,8 @@ class ProfileViewController: UIViewController {
                     }
                     let firstName = document.get("firstName") as! String
                     let lastName = document.get("lastName") as! String
-                    self.nameLabel.alpha = 1
                     self.nameLabel.text = "\(firstName) \(lastName)"
+                    self.nameLabel.alpha = 1
                 }
             }
         } else {

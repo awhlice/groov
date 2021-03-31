@@ -13,11 +13,21 @@ class MessagingViewController: UIViewController {
     // MARK: - Subviews
     @IBOutlet weak var testLabel: UILabel!
     
+    var db: Firestore!
     var index: Int!
     
     // MARK: - VC Lifecycle
     override func viewDidLoad() {
-        testLabel.text = ("Index \(index)")
+        db = Firestore.firestore()
+        
+        db.collection("users").document(Auth.auth().currentUser!.uid).getDocument { (snapshot, error) in
+            if snapshot!.exists == true {
+                let matchesArray = snapshot!.get("matches") as! Array<String>
+                let match = matchesArray[self.index]
+                
+                self.testLabel.text = ("\(match)")
+            }
+        }
         super.viewDidLoad()
     }
 }

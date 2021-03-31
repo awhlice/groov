@@ -69,11 +69,13 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                     let firstName = snapshot2!.get("firstName") as! String
                     let lastName = snapshot2!.get("lastName") as! String
                     cell.nameLabel.text = "\(firstName) \(lastName)"
+                    cell.nameLabel.alpha = 1
                     let image = snapshot2!.get("image") as! String
                     let url = NSURL(string: image)
                     let data = NSData(contentsOf:url! as URL)
                     if data != nil {
                         cell.profileImageView.image = UIImage(data:data! as Data)
+                        cell.profileImageView.alpha = 1
                     }
                 }
             }
