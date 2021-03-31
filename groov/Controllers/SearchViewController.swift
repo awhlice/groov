@@ -117,7 +117,7 @@ class SearchViewController: UIViewController {
         let geopoint1 = GeoPoint(latitude: northEast.latitude, longitude: northEast.longitude)
         let geopoint2 = GeoPoint(latitude: southWest.latitude, longitude: southWest.longitude)
 
-        let dbRef = Firestore.firestore().collection("users")
+        let dbRef = db.collection("users")
         let query = dbRef
             .whereField("geopoint", isLessThan: geopoint1)
             .whereField("geopoint", isGreaterThan: geopoint2)

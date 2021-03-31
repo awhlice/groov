@@ -20,6 +20,8 @@
 		2946A80025D25BC600049044 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2946A7FF25D25BC600049044 /* GoogleService-Info.plist */; };
 		2946A81725D25C7500049044 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2946A81625D25C7500049044 /* Login.storyboard */; };
 		2946A81A25D25CA900049044 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946A81925D25CA900049044 /* LoginViewController.swift */; };
+		294917232614D22300D8A59D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294917222614D22300D8A59D /* Message.swift */; };
+		294917262614E35200D8A59D /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294917252614E35200D8A59D /* Sender.swift */; };
 		295BCC7925E4C96200730AE8 /* RankedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295BCC7825E4C96200730AE8 /* RankedTrack.swift */; };
 		296CEDB72606E563004EC5D4 /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296CEDB62606E563004EC5D4 /* MatchCell.swift */; };
 		296CEE0626070F3E004EC5D4 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296CEE0526070F3E004EC5D4 /* MessagingViewController.swift */; };
@@ -49,6 +51,8 @@
 		2946A7FF25D25BC600049044 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2946A81625D25C7500049044 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		2946A81925D25CA900049044 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		294917222614D22300D8A59D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		294917252614E35200D8A59D /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		295BCC7825E4C96200730AE8 /* RankedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedTrack.swift; sourceTree = "<group>"; };
 		296CEDB62606E563004EC5D4 /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		296CEE0526070F3E004EC5D4 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				2926613625E48E18000AE731 /* AuthResponse.swift */,
 				295BCC7825E4C96200730AE8 /* RankedTrack.swift */,
 				296CEDB62606E563004EC5D4 /* MatchCell.swift */,
+				294917222614D22300D8A59D /* Message.swift */,
+				294917252614E35200D8A59D /* Sender.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +334,8 @@
 				29AB212025D5F8FE00D8246D /* SignUpViewController.swift in Sources */,
 				29198AF025E4683A0027FBD7 /* AuthManager.swift in Sources */,
 				295BCC7925E4C96200730AE8 /* RankedTrack.swift in Sources */,
+				294917262614E35200D8A59D /* Sender.swift in Sources */,
+				294917232614D22300D8A59D /* Message.swift in Sources */,
 				2946A81A25D25CA900049044 /* LoginViewController.swift in Sources */,
 				2900617425DF574E00A5CD0E /* MatchesViewController.swift in Sources */,
 				2926613725E48E18000AE731 /* AuthResponse.swift in Sources */,
