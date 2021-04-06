@@ -169,7 +169,10 @@ class MessagingViewController: MessagesViewController, MessagesDataSource, Messa
                     sentDate: sentDate,
                     kind: .text(content)))
         
-        self.reloadInputViews()
+        // reloads the view after sending a message
+        inputBar.inputTextView.text = ""
+        self.messagesCollectionView.reloadData()
+        self.messagesCollectionView.scrollToLastItem(animated: true)
     }
     
     // MARK: - IBActions
