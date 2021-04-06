@@ -208,6 +208,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="SLs-5O-lfe"/>
         <segue reference="rso-lP-lvE"/>
     </inferredMetricsTieBreakers>
     <resources>
