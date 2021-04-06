@@ -140,29 +140,38 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDn-XI-oMO" userLabel="backButton">
-                                        <rect key="frame" x="25" y="72" width="23" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" backgroundImage="arrowshape.turn.up.left.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="backButtonTapped:" destination="PYp-bE-KhI" eventType="touchUpInside" id="qGT-31-fhF"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR5-fE-pMP" userLabel="nameLabel">
-                                        <rect key="frame" x="151" y="58" width="263" height="50"/>
+                                    <label opaque="NO" alpha="0.0" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR5-fE-pMP" userLabel="nameLabel">
+                                        <rect key="frame" x="80" y="58" width="239" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <attributedString key="attributedText">
                                             <fragment content="First">
                                                 <attributes>
                                                     <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="36" name="Helvetica-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFj-Gx-Vk9" userLabel="unmatchButton">
+                                        <rect key="frame" x="334" y="71.5" width="27" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" backgroundImage="heart.slash" catalog="system"/>
+                                        <connections>
+                                            <action selector="unmatchButtonTapped:" destination="PYp-bE-KhI" eventType="touchUpInside" id="mmo-xc-4OE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDn-XI-oMO" userLabel="backButton">
+                                        <rect key="frame" x="26" y="71.5" width="27" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" backgroundImage="arrow.left" catalog="system"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="PYp-bE-KhI" eventType="touchUpInside" id="qGT-31-fhF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             </view>
@@ -174,6 +183,7 @@
                         <outlet property="backButton" destination="VDn-XI-oMO" id="22g-IA-z8l"/>
                         <outlet property="nameLabel" destination="jR5-fE-pMP" id="sgi-KM-JTk"/>
                         <outlet property="subview" destination="pLj-Sv-UFI" id="L0n-bs-Lrs"/>
+                        <outlet property="unmatchButton" destination="pLj-Sv-UFI" id="JtY-6l-hNx"/>
                         <segue destination="4IG-9L-I9Y" kind="show" identifier="toMatches" id="rso-lP-lvE"/>
                     </connections>
                 </viewController>
@@ -201,7 +211,8 @@
         <segue reference="rso-lP-lvE"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="heart.slash" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>

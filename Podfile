@@ -13,4 +13,5 @@ target 'groov' do
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
   pod 'MessageKit'
+  pod 'SDWebImage'
 end
