@@ -69,7 +69,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7b-rg-yKW" userLabel="nameLabel">
-                                                    <rect key="frame" x="134" y="11" width="269" height="23"/>
+                                                    <rect key="frame" x="137" y="11" width="230" height="23"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="First Last">
@@ -87,9 +87,24 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                 </imageView>
+                                                <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sek-06-TMk" userLabel="messageLabel">
+                                                    <rect key="frame" x="137" y="39" width="230" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Last message">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" size="18" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="messageLabel" destination="sek-06-TMk" id="aoy-9n-wDF"/>
                                             <outlet property="nameLabel" destination="c7b-rg-yKW" id="YYB-gN-Ujy"/>
                                             <outlet property="profileImageView" destination="FZr-lt-T4K" id="hjW-HQ-GK0"/>
                                         </connections>
@@ -121,7 +136,7 @@
                         <outlet property="toLogoutButton" destination="HF9-aI-Vdc" id="FBA-cd-FMv"/>
                         <outlet property="toProfileButton" destination="qon-jr-FjJ" id="0eS-o0-WEP"/>
                         <outlet property="toSearchButton" destination="XRd-og-mNZ" id="afP-u7-BL8"/>
-                        <segue destination="PYp-bE-KhI" kind="show" identifier="toMessaging" id="SLs-5O-lfe"/>
+                        <segue destination="PYp-bE-KhI" kind="show" identifier="toMessaging" animates="NO" id="SLs-5O-lfe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNY-Ag-SAo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -140,20 +155,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" alpha="0.0" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR5-fE-pMP" userLabel="nameLabel">
-                                        <rect key="frame" x="80" y="58" width="239" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="First">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="36" name="Helvetica-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFj-Gx-Vk9" userLabel="unmatchButton">
                                         <rect key="frame" x="334" y="71.5" width="27" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -172,6 +173,27 @@
                                             <action selector="backButtonTapped:" destination="PYp-bE-KhI" eventType="touchUpInside" id="qGT-31-fhF"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" alpha="0.0" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR5-fE-pMP" userLabel="nameLabel">
+                                        <rect key="frame" x="79" y="39" width="239" height="27"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="First">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mep-Qc-P0W" userLabel="toProfileButton">
+                                        <rect key="frame" x="169" y="68" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="toProfileButtonTapped:" destination="PYp-bE-KhI" eventType="touchUpInside" id="yoy-jV-wUD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             </view>
@@ -183,8 +205,9 @@
                         <outlet property="backButton" destination="VDn-XI-oMO" id="22g-IA-z8l"/>
                         <outlet property="nameLabel" destination="jR5-fE-pMP" id="sgi-KM-JTk"/>
                         <outlet property="subview" destination="pLj-Sv-UFI" id="L0n-bs-Lrs"/>
+                        <outlet property="toProfileButton" destination="mep-Qc-P0W" id="jVI-Sd-NyU"/>
                         <outlet property="unmatchButton" destination="pLj-Sv-UFI" id="JtY-6l-hNx"/>
-                        <segue destination="4IG-9L-I9Y" kind="show" identifier="toMatches" id="rso-lP-lvE"/>
+                        <segue destination="4IG-9L-I9Y" kind="show" identifier="toMatches" animates="NO" id="rso-lP-lvE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q35-z9-D7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

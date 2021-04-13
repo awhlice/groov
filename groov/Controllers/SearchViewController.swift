@@ -165,11 +165,11 @@ class SearchViewController: UIViewController {
     // transitions the user to their profile screen
     @IBAction func toProfileButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Profile", bundle: .main)
-
-        if let profileViewController = storyboard.instantiateInitialViewController() {
-            view.window?.rootViewController = profileViewController
-            view.window?.makeKeyAndVisible()
-        }
+        
+        let profileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+        profileViewController.uid = String(Auth.auth().currentUser!.uid)
+        view.window?.rootViewController = profileViewController
+        view.window?.makeKeyAndVisible()
     }
     
     // transitions the user to their matches screen

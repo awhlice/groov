@@ -18,6 +18,7 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var db: Firestore!
     var numCells: Int = 0
+    var chatId: String!
     
     // MARK: - VC Lifecycle
     override func viewDidLoad() {
@@ -56,16 +57,18 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         return numCells
     }
     
-    // formats the first name and profile image for each match in its table view match cell
+    // formats the first name, profile image, and latest message for each match in its table view match cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MatchCell = tableView.dequeueReusableCell(withIdentifier: "MatchCell", for: indexPath) as! MatchCell
         
-        db.collection("users").document(Auth.auth().currentUser!.uid).getDocument { (snapshot, error) in
+        let userA = Auth.auth().currentUser!.uid
+        db.collection("users").document(userA).getDocument { (snapshot, error) in
             if snapshot!.exists == true {
                 let matchesArray = snapshot!.get("matches") as! Array<String>
-                let match = matchesArray[indexPath.row]
+                let userB = matchesArray[indexPath.row]
                 
-                self.db.collection("users").document(match).getDocument { (snapshot2, error) in
+                // gets the first name and profile image of the matched user
+                self.db.collection("users").document(userB).getDocument { (snapshot2, error) in
                     cell.nameLabel.text = snapshot2!.get("firstName") as? String
                     cell.nameLabel.alpha = 1
                     let image = snapshot2!.get("image") as! String
@@ -74,6 +77,26 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                     if data != nil {
                         cell.profileImageView.image = UIImage(data:data! as Data)
                         cell.profileImageView.alpha = 1
+                    }
+                }
+                
+                if userA > userB {
+                    self.chatId = userA + userB
+                } else {
+                    self.chatId = userB + userA
+                }
+                
+                // gets the latest message in the chat between the current user and matched user
+                let query = self.db.collection("chats").document(self.chatId).collection("messages")
+                    .order(by: "messageId", descending: true)
+                    .limit(to: 1)
+                
+                query.getDocuments { snapshot3, error in
+                    if snapshot3?.isEmpty == false {
+                        for document in snapshot3!.documents {
+                            cell.messageLabel.text = document.get("content") as? String
+                            cell.messageLabel.alpha = 1
+                        }
                     }
                 }
             }
@@ -100,11 +123,11 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     // transitions the user to their profile screen
     @IBAction func toProfileButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Profile", bundle: .main)
-
-        if let profileViewController = storyboard.instantiateInitialViewController() {
-            view.window?.rootViewController = profileViewController
-            view.window?.makeKeyAndVisible()
-        }
+        
+        let profileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+        profileViewController.uid = String(Auth.auth().currentUser!.uid)
+        view.window?.rootViewController = profileViewController
+        view.window?.makeKeyAndVisible()
     }
     
     // transitions the user to the search screen

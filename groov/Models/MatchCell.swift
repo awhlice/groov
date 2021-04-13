@@ -12,4 +12,5 @@ class MatchCell: UITableViewCell {
     // MARK: - Subviews
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
 }

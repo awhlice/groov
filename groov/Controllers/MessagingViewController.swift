@@ -15,6 +15,7 @@ class MessagingViewController: MessagesViewController, MessagesDataSource, Messa
     
     // MARK: - Subviews
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var toProfileButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var unmatchButton: UIView!
     @IBOutlet weak var subview: UIView!
@@ -45,6 +46,11 @@ class MessagingViewController: MessagesViewController, MessagesDataSource, Messa
                         self.messagesCollectionView.messagesLayoutDelegate = self
                         self.messagesCollectionView.messagesDisplayDelegate = self
                         self.messageInputBar.delegate = self
+                        
+                        if let layout = self.messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
+                            layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
+                            layout.textMessageSizeCalculator.incomingAvatarSize = .zero
+                        }
                     }
                 })
             }
@@ -71,15 +77,14 @@ class MessagingViewController: MessagesViewController, MessagesDataSource, Messa
         return messages.count
     }
     
+    // returns zero size for hiding the avatar
     func avatarSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
         return .zero
     }
 
+    // loads the images for the other user's avatar
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-        if message.sender.senderId == Auth.auth().currentUser!.uid {
-            SDWebImageManager.shared.loadImage(with: URL(string: currentUser.senderImage), options: .highPriority, progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
-                avatarView.image = image }
-        } else {
+        if message.sender.senderId != Auth.auth().currentUser!.uid {
             SDWebImageManager.shared.loadImage(with: URL(string: otherUser.senderImage), options: .highPriority, progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
             avatarView.image = image }
         }
@@ -93,6 +98,9 @@ class MessagingViewController: MessagesViewController, MessagesDataSource, Messa
             self.otherUser = Sender(senderId: otherUserId, displayName: otherName, senderImage: otherImage)
             self.nameLabel.text = otherName
             self.nameLabel.alpha = 1
+            let otherImageURL = NSURL(string: otherImage)
+            let otherData = NSData(contentsOf:otherImageURL! as URL)
+            self.toProfileButton.setBackgroundImage(UIImage(data:otherData! as Data), for: .normal)
             completionHandler(true)
         }
     }
@@ -176,6 +184,14 @@ class MessagingViewController: MessagesViewController, MessagesDataSource, Messa
     }
     
     // MARK: - IBActions
+    @IBAction func toProfileButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Profile", bundle: .main)
+        
+        let profileViewController = storyboard.instantiateViewController(withIdentifier: "Profile") as! ProfileViewController
+        profileViewController.uid = otherUser.senderId
+        view.window?.rootViewController = profileViewController
+        view.window?.makeKeyAndVisible()
+    }
     
     // brings the user back to their matches screen
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -193,6 +209,7 @@ class MessagingViewController: MessagesViewController, MessagesDataSource, Messa
             self.db.collection("chats").document(self.chatId).delete()
             self.db.collection("users").document(self.currentUser.senderId).updateData(["matches": FieldValue.arrayRemove(["\(String(describing: self.otherUser.senderId))"])])
             self.db.collection("users").document(self.otherUser.senderId).updateData(["matches": FieldValue.arrayRemove(["\(String(describing: self.currentUser.senderId))"])])
+            
             self.performSegue(withIdentifier: "toMatches", sender: self)
         }))
         
